@@ -49,5 +49,6 @@ func main() {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/check/", checkHandler)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	//log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8000", nil))
 }
