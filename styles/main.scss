@@ -99,6 +99,9 @@ a, .link, .expander {
 		border-bottom: 0;
 	}
 }
+a.iconified {
+	display: inline-block;
+}
 
 .withdis, .expandable {display: none;}
 .gurmukhi {font-family: 'Gurbani Akhar Heavy'; font-size: 0.95em;}
@@ -249,12 +252,14 @@ div.download {
 }
 
 /* smartphones in landscape */
-@media only screen and (max-device-width: 750px) {
+@media only screen and (max-device-width: 150px) {
+	html {
+		font-size: 16px;
+	}
 	body {
 		width: 100%;
 	}
 	.body {
-		font-size: 16px;
 		margin: 0;
 		padding: 3em 1em;
 	}
@@ -320,12 +325,16 @@ div.download {
 }
 
 /* smartphones in portrait */
-@media only screen and (max-device-width: 450px) {
+@media only screen and (max-device-width: 568px) and (orientation: portrait) {
+	html {
+		font-size: inherit;
+	}
 	body {
+		font-size: inherit;
 		width: 100%;
 	}
 	.body {
-		font-size: 16px;
+		font-size: inherit;
 		margin: 0;
 		padding: 3em 1em;
 	}
@@ -333,8 +342,18 @@ div.download {
 		line-height: 1.5em;
 	}
 	h3 {
+		font-size: 2em;
+		margin: 0;
+		> span {
+			font-size: inherit;
+			margin: 0.5em 0;
+		}
+		> span:last-child {
+			display: none;
+		}
+	}
+	p, ul, div.download {
 		font-size: 1.5em;
-		margin: 0.75em 0;
 	}
 	img#live-search-gif {
 		padding: 2em 0;
@@ -342,17 +361,20 @@ div.download {
 	}
 	.github-octicon {
 		position: relative;
-		height: 1.5em;
-		width: 1.5em;
+		height: 1em;
+		width: 1em;
 		top: 0.15em;
 		margin-right: .2em;
 	}
 	div.header {
 		padding-bottom: 0em;
+		text-align: center;
+		display: block;
 	}
 	div.intro {
 		margin-bottom: 1em;
 		> p {
+			font-size: 2em;
 			width: 100%;
 			text-align: center;
 		}
@@ -377,9 +399,13 @@ div.download {
 	    }
 	}
 	div.download {
-		justify-content: space-between;
+		padding: 3em 0;
 		> div {
-			width: 45%;
+			width: 100%;
+			padding: 0 2em 0;
+		}
+		> div:first-child {
+			padding-bottom: 3em;
 		}
 	}
 }
