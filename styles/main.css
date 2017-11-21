@@ -189,29 +189,129 @@ div.download {
   top: 0.1em;
   margin: 0 .15em; }
 
+/* left or right half of a 1080p monitor */
 @media only screen and (max-width: 950px) {
   .body {
     font-size: 16px; } }
-@media only screen and (max-device-width: 1366px) {
+/* iPad and iPad Pro */
+@media only screen and (max-device-width: 1024px) {
   .body {
     font-size: 16px; } }
-@media only screen and (max-device-width: 1279px) {
+/* smartphones in landscape */
+@media only screen and (max-device-width: 750px) {
+  body {
+    width: 100%; }
+
   .body {
-    font-size: 24px;
+    font-size: 16px;
     margin: 0;
-    padding: 0em;
-    max-width: 100%;
-    background: rgba(255, 255, 255, 0.4); }
+    padding: 3em 1em; }
+
+  h1 {
+    line-height: 1.5em; }
+
+  h3 {
+    margin: 0; }
+    h3 > span {
+      font-size: 1.25em;
+      margin: 0.5em 0; }
+    h3 > span:last-child {
+      display: none; }
 
   img#live-search-gif {
-    padding-top: 3.333em;
+    padding: 2em 0;
     width: 100%; }
 
   .github-octicon {
     position: relative;
-    height: 2em;
-    width: 2em;
-    top: 0.5em;
-    margin-right: 0em; } }
+    height: 1.5em;
+    width: 1.5em;
+    top: 0.15em;
+    margin-right: .2em; }
+
+  div.header {
+    padding-bottom: 0em; }
+
+  div.intro {
+    margin-bottom: 1em; }
+    div.intro > p {
+      width: 100%;
+      text-align: center; }
+
+  div.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0; }
+    div.nav > div {
+      margin: 0 auto;
+      padding: 0 1em; }
+    div.nav > div > div {
+      display: inline-block; }
+      div.nav > div > div:first-child {
+        display: none; }
+    div.nav a {
+      font-size: 1.75em; }
+
+  div.download {
+    justify-content: space-between; }
+    div.download > div {
+      width: 45%; } }
+/* smartphones in portrait */
+@media only screen and (max-device-width: 450px) {
+  body {
+    width: 100%; }
+
+  .body {
+    font-size: 16px;
+    margin: 0;
+    padding: 3em 1em; }
+
+  h1 {
+    line-height: 1.5em; }
+
+  h3 {
+    font-size: 1.5em;
+    margin: 0.75em 0; }
+
+  img#live-search-gif {
+    padding: 2em 0;
+    width: 100%; }
+
+  .github-octicon {
+    position: relative;
+    height: 1.5em;
+    width: 1.5em;
+    top: 0.15em;
+    margin-right: .2em; }
+
+  div.header {
+    padding-bottom: 0em; }
+
+  div.intro {
+    margin-bottom: 1em; }
+    div.intro > p {
+      width: 100%;
+      text-align: center; }
+
+  div.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0; }
+    div.nav > div {
+      margin: 0 auto;
+      padding: 0 1em; }
+    div.nav > div > div {
+      display: inline-block; }
+      div.nav > div > div:first-child {
+        display: none; }
+    div.nav a {
+      font-size: 1.75em; }
+
+  div.download {
+    justify-content: space-between; }
+    div.download > div {
+      width: 45%; } }
 
 /*# sourceMappingURL=main.css.map */
