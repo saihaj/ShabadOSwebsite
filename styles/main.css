@@ -93,7 +93,8 @@ div.nav {
   position: fixed;
   width: 100%;
   top: 0;
-  left: 0; }
+  left: 0;
+  background: rgba(255, 236, 239, 0.15); }
   div.nav > div {
     margin: 0 auto;
     padding: 0 3em;
