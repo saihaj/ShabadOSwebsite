@@ -102,6 +102,25 @@ a, .link, .expander {
 a.iconified {
 	display: inline-block;
 }
+ul.changeLog {
+	list-style: none;
+    padding: 0;
+    ul {
+		list-style: none;
+	    padding: 0 0 0 1.75em;
+    }
+	li {
+		padding-left: 2em;
+		&.expander:hover {
+			background: rgba(13, 71, 161, 0.2);
+		}
+		&:before {
+			content: '‣';
+			padding: 0 .5em 0 0;
+			margin-left: -1.35em;
+		}
+	}
+}
 
 .withdis, .expandable {display: none;}
 .gurmukhi {font-family: 'Gurbani Akhar Heavy'; font-size: 0.95em;}

@@ -85,6 +85,21 @@ a, .link, .expander {
 a.iconified {
   display: inline-block; }
 
+ul.changeLog {
+  list-style: none;
+  padding: 0; }
+  ul.changeLog ul {
+    list-style: none;
+    padding: 0 0 0 1.75em; }
+  ul.changeLog li {
+    padding-left: 2em; }
+    ul.changeLog li.expander:hover {
+      background: rgba(13, 71, 161, 0.2); }
+    ul.changeLog li:before {
+      content: '‣';
+      padding: 0 .5em 0 0;
+      margin-left: -1.35em; }
+
 .withdis, .expandable {
   display: none; }
 
