@@ -48,8 +48,8 @@
 	            <p>And more! Our <a href="#features">features</a> section goes into more detail and covers more topics. Check out our <a href="#support">support</a> section to voice your desires and missing features. Otherwise, read on to <a href="#install">install</a> Shabad OS!</p>
 				<div id="install" class="download">
 					<div>
-						<a href="updates/win/Shabad OS Setup 17.6.28.exe" class="download-button"><div class="download-button"><span>Download</span> <span>Shabad OS</span></div></a>
-						<div class="info">Version 17.6.28 ❁ Windows</div>
+						<a href="updates/win/Shabad OS Setup 18.2.9.exe" class="download-button"><div class="download-button"><span>Download</span> <span>Shabad OS</span></div></a>
+						<div class="info">Version 18.2.9 ❁ Windows</div>
 					</div>
 					<div>
 						<div class="other-platforms">
@@ -90,27 +90,55 @@
 	        	<p><b>Change Log</b></p>
 	            <ul class="changeLog">
 
-	                <li class="expander">2017 June 28</li>
+	                <li class="expander">2018 February 9</li>
 	                <ul class="expandable">
-	                	<li>Fixed database for shabads incorrectly using nbsp; instead of normal space character. This fixes some long english translations from being only one line scrolling off the screen.</li>
+	                	<li>Replaced menu item (OBS) with new Live Caption Tool. This tool allows users to easily format and design their livestream captioning. It includes instructions for setting up OBS (Open Broadcaster Software). This should greatly reduce the effort required to setup broadcast subtitles. Click "Menu" in the Controller, then click "Live Caption Tool", and finally click "Help" for more information.</li>
+	                	<li>Removed next line and added english transliteration for default displays.</li>
+				<li>Added 3 color themes: White and Yellow on Blue as well as Pastel Colors on Dark.</li>
+				<li>Fixed Akhand Paath mode.</li>
 	            	</ul>
 
-	                <li class="expander">2017 March 24</li>
+	                <li class="expander">2017 November 24</li>
 	                <ul class="expandable">
-	                	<li>Fixed Ctrl+left,right,up,down hotkeys.</li>
-	                	<!--<li>Fixed english translations from overflowing the screen in Bhai Gurdas Ji's bani.</li>-->
-	                	<li>Fixed scrolling to the correct line of Asa di Var when using the back arrow/hotkey as opposed to the Bani/History methods.</li>
-	                	<li>Added shortcut hints to title when hovering over icons.</li>
-	                	<li>Edited a shabad to match the Amrit Kirtan version. Original version can be found in iGurbani database. Here are the before and after versions of the first line changed:</li>
-	                	<ul>
-	                		<li><span class="gurmukhi">pUCq pQik iqh mwrg n DwrY pig pRIqm kY dys kYsy bwqnu ky jweIAY</span></li>
-	                		<li><span class="gurmukhi">pUCq piQk iqh mwrig n DwrY pig pRIqm kY dys kYsy bwqn sy jweIAY</span></li>
-	            		</ul>
-	                	<li>Changed the gap between icons at the bottom-right of the navigator so it won't look as if an icon is missing.</li>
+	                	<li>Using the cap height as reference for English caused tiny fonts. We have reverted to using 1/2 the cap-height of gurbani font size as the x-height for english. The benefit is that English is about 35% larger and Punjabi Darpan is about 25% larger. The negative is that line-heights were maintained to fit as much data as possible on typical projector resolution ratios of 4:3.</li>
+	                	<li>In addition, we made the change to show only one line of the next line to conserve considerable space. Before, we used to allocate two lines of space, and sometimes the next line could fit on one, resulting in wastage.</li>
 	            	</ul>
 
 	                <li class="expander">Archived</li>
 	                <ul class="expandable">
+
+			        <li class="expander">2017 November 23</li>
+			        <ul class="expandable">
+			        	<li>Added connect feature in menu. You can connect to other compatible versions of Shabad OS and vice versa using the gui. Personal settings will be maintained. Your server will automatically be broadcasted on the network.</li>
+			        	<li>Added color themes (Day, Night, and Philosophiae).</li>
+			        	<li>Added layout options (Normal, Space Around, and Space Between). There is a bug with "Space Evenly" in electron, but will work in Chrome.</li>
+			        	<li>With the new layout options, removing Next Line will open up free space. This fixes a bug from previous versions.</li>
+			        	<li>Rehauled font sizes to properly display next line when font size is changed.</li>
+			        	<li>Added different height options for popped in controller.</li>
+			        	<li>Added the option to not automatically split gurbani lines by their heavy pause and line-endings.</li>
+			        	<li>Added larivaar gurbani option. Useful in combination with turning off previous "split gurbani lines" option.</li>
+			        	<li>Added the option to show or hide a background picture. You can place any custom file in place of the existing ones to show your own background.</li>
+			        	<li>Various bug fixes and efficiency throughputs.</li>
+			    	</ul>
+
+		                <li class="expander">2017 June 28</li>
+		                <ul class="expandable">
+		                	<li>Fixed database for shabads incorrectly using nbsp; instead of normal space character. This fixes some long english translations from being only one line scrolling off the screen.</li>
+		            	</ul>
+
+		                <li class="expander">2017 March 24</li>
+		                <ul class="expandable">
+		                	<li>Fixed Ctrl+left,right,up,down hotkeys.</li>
+		                	<!--<li>Fixed english translations from overflowing the screen in Bhai Gurdas Ji's bani.</li>-->
+		                	<li>Fixed scrolling to the correct line of Asa di Var when using the back arrow/hotkey as opposed to the Bani/History methods.</li>
+		                	<li>Added shortcut hints to title when hovering over icons.</li>
+		                	<li>Edited a shabad to match the Amrit Kirtan version. Original version can be found in iGurbani database. Here are the before and after versions of the first line changed:</li>
+		                	<ul>
+		                		<li><span class="gurmukhi">pUCq pQik iqh mwrg n DwrY pig pRIqm kY dys kYsy bwqnu ky jweIAY</span></li>
+		                		<li><span class="gurmukhi">pUCq piQk iqh mwrig n DwrY pig pRIqm kY dys kYsy bwqn sy jweIAY</span></li>
+		            		</ul>
+		                	<li>Changed the gap between icons at the bottom-right of the navigator so it won't look as if an icon is missing.</li>
+		            	</ul>
 
 		                <li class="expander">2017 February 9</li>
 		                <ul class="expandable">
