@@ -18,6 +18,12 @@ jobs:
       # Get kubernetes credentials
       - run: az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${AZURE_CLUSTER_NAME}
       - run: kubectl apply -f k8s.yml
-    filters:
-      branches:
-        only: master
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy:
+          branches:
+            only:
+              - master
