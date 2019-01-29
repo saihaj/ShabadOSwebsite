@@ -1,0 +1,23 @@
+version: 2
+
+jobs:
+  deploy:
+    docker:
+      - image: microsoft/azure-cli
+    steps:
+      # Fetch the source code
+      - checkout
+      # Log in to Docker Hub
+      - run: docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+      # Build the image, tagging it as latest
+      - run: docker build -t shabados/website:latest
+      # Push the image to Docker Hub
+      - run: docker push shabados/website:latest
+      # Log in to Azure
+      - run: az login -u ${AZURE_USERNAME} -p ${AZURE_PASSWORD}
+      # Get kubernetes credentials
+      - run: az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${AZURE_CLUSTER_NAME}
+      - run: kubectl apply -f k8s.yml
+    filters:
+      branches:
+        only: master

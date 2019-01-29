@@ -1,0 +1,478 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700");
+@font-face {
+  font-family: 'Gurbani Akhar Heavy';
+  src: url("./includes/GurbaniAkhar-Heavy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  color: #212121;
+  background-color: #ffffff;
+  background-image: url("./includes/bg.png");
+  background-repeat: no-repeat;
+  font-family: "Roboto", "Segoe UI", "Helvetica", "Arial";
+  line-height: 2;
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+.body {
+  margin: 0 auto 3em;
+  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 7.5%);
+  min-width: 33em;
+  max-width: 48em;
+  padding: 3em;
+}
+
+h1 {
+  font-size: 4.666em;
+  font-weight: 300;
+}
+
+h2 {
+  color: #424242;
+  font-size: 3.333em;
+  font-weight: normal;
+  margin: 0;
+  padding-top: 1em;
+}
+
+h3 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+h3>span:last-child {
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75em;
+}
+
+p {
+  margin: 0;
+}
+
+p+p {
+  margin-top: 1em;
+}
+
+p+ul {
+  margin-top: 0;
+}
+
+label {
+  font-weight: 700;
+}
+
+label::after {
+  content: " —";
+}
+
+b {
+  font-weight: 700;
+}
+
+a,
+.link,
+.expander {
+  color: rgba(13, 71, 161, 0.75);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(13, 71, 161, 0.3);
+  cursor: pointer;
+}
+
+a path,
+.link path,
+.expander path {
+  fill: rgba(13, 71, 161, 0.75);
+}
+
+a:hover,
+.link:hover,
+.expander:hover {
+  text-decoration: none;
+  color: #0d47a1;
+  border-bottom: 1px solid rgba(13, 71, 161, 0.9);
+}
+
+a:hover path,
+.link:hover path,
+.expander:hover path {
+  fill: #0d47a1;
+}
+
+.expander {
+  border-bottom: 0;
+}
+
+.expander:hover {
+  border-bottom: 0;
+}
+
+a.iconified {
+  display: inline-block;
+}
+
+ul.changeLog {
+  list-style: none;
+  padding: 0;
+}
+
+ul.changeLog ul {
+  list-style: none;
+  padding: 0 0 0 1.75em;
+}
+
+ul.changeLog li {
+  padding-left: 2em;
+}
+
+ul.changeLog li.expander:hover {
+  background: rgba(13, 71, 161, 0.2);
+}
+
+ul.changeLog li:before {
+  content: '‣';
+  padding: 0 .5em 0 0;
+  margin-left: -1.35em;
+}
+
+.withdis,
+.expandable {
+  display: none;
+}
+
+.gurmukhi {
+  font-family: 'Gurbani Akhar Heavy';
+  font-size: 0.95em;
+}
+
+div.nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 236, 239, 0.15);
+}
+
+div.nav>div {
+  margin: 0 auto;
+  padding: 0 3em;
+  background: linear-gradient(180deg, #ffd0d5, rgba(255, 208, 213, 0.875) 100%);
+  min-width: 33em;
+  max-width: 48em;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.nav>div>div {
+  display: inline-block;
+}
+
+div.nav img {
+  width: 1.25em;
+  vertical-align: text-bottom;
+  opacity: 0.75;
+  margin-right: 0.25em;
+}
+
+div.nav a {
+  color: #303030;
+  font-size: 1.15em;
+  border-bottom: 1px dashed rgba(48, 48, 48, 0.4);
+}
+
+div.nav a:hover {
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+div.nav a:hover img {
+  opacity: 1;
+}
+
+div.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 2.25em 3em 3em;
+}
+
+div.header h1 {
+  margin: 0;
+}
+
+div.header>img {
+  width: 14em;
+  height: 14em;
+  margin-right: .5em;
+}
+
+div.intro {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 4em;
+  flex-wrap: wrap;
+}
+
+div.intro>p {
+  width: 39%;
+  font-size: 1.5em;
+  text-align: right;
+  font-weight: 300;
+}
+
+div.download {
+  padding: 4em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div.download>div {
+  width: 33%;
+  text-align: center;
+}
+
+div.download div.download-button {
+  border-radius: 2px;
+  padding: .5em 1em;
+  margin-bottom: 0.5em;
+  background: #000;
+  text-align: center;
+  color: #ffeff2;
+  font-size: 1.15em;
+}
+
+div.download div.download-button:hover {
+  background: #1a1a1a;
+  background: #0d47a1;
+  color: #fff5e5;
+}
+
+div.download div.download-button>span {
+  display: inline-block;
+}
+
+div.download div.download-button>span:first-child {
+  font-weight: 300;
+}
+
+div.download div.info {
+  font-size: 0.75em;
+  color: #424242;
+}
+
+div.download .other-platforms {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.download .other-platforms>div>svg {
+  width: 2em;
+  height: 2em;
+}
+
+div.download .other-platforms>div.disabled>svg>path {
+  fill-opacity: 0.25;
+}
+
+.github-octicon {
+  position: relative;
+  height: 1em;
+  width: 1em;
+  top: 0.1em;
+  margin: 0 .15em;
+}
+
+/* left or right half of a 1080p monitor */
+
+@media only screen and (max-width: 950px) {
+  .body {
+    font-size: 16px;
+  }
+}
+
+/* iPad and iPad Pro */
+
+@media only screen and (max-device-width: 1024px) {
+  .body {
+    font-size: 16px;
+  }
+}
+
+/* smartphones in landscape */
+
+@media only screen and (max-device-width: 150px) {
+  html {
+    font-size: 16px;
+  }
+  body {
+    width: 100%;
+  }
+  .body {
+    margin: 0;
+    padding: 3em 1em;
+  }
+  h1 {
+    line-height: 1.5em;
+  }
+  h3 {
+    margin: 0;
+  }
+  h3>span {
+    font-size: 1.25em;
+    margin: 0.5em 0;
+  }
+  h3>span:last-child {
+    display: none;
+  }
+  img#live-search-gif {
+    padding: 2em 0;
+    width: 100%;
+  }
+  .github-octicon {
+    position: relative;
+    height: 1.5em;
+    width: 1.5em;
+    top: 0.15em;
+    margin-right: .2em;
+  }
+  div.header {
+    padding-bottom: 0em;
+  }
+  div.intro {
+    margin-bottom: 1em;
+  }
+  div.intro>p {
+    width: 100%;
+    text-align: center;
+  }
+  div.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  div.nav>div {
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+  div.nav>div>div {
+    display: inline-block;
+  }
+  div.nav>div>div:first-child {
+    display: none;
+  }
+  div.nav a {
+    font-size: 1.75em;
+  }
+  div.download {
+    justify-content: space-between;
+  }
+  div.download>div {
+    width: 45%;
+  }
+}
+
+/* smartphones in portrait */
+
+@media only screen and (max-device-width: 568px) and (orientation: portrait) {
+  html {
+    font-size: inherit;
+  }
+  body {
+    font-size: inherit;
+    width: 100%;
+  }
+  .body {
+    font-size: inherit;
+    margin: 0;
+    padding: 3em 1em;
+  }
+  h1 {
+    line-height: 1.5em;
+  }
+  h3 {
+    font-size: 2em;
+    margin: 0;
+  }
+  h3>span {
+    font-size: inherit;
+    margin: 0.5em 0;
+  }
+  h3>span:last-child {
+    display: none;
+  }
+  p,
+  ul,
+  div.download {
+    font-size: 1.5em;
+  }
+  img#live-search-gif {
+    padding: 2em 0;
+    width: 100%;
+  }
+  .github-octicon {
+    position: relative;
+    height: 1em;
+    width: 1em;
+    top: 0.15em;
+    margin-right: .2em;
+  }
+  div.header {
+    padding-bottom: 0em;
+    text-align: center;
+    display: block;
+  }
+  div.intro {
+    margin-bottom: 1em;
+  }
+  div.intro>p {
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+  }
+  div.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  div.nav>div {
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+  div.nav>div>div {
+    display: inline-block;
+  }
+  div.nav>div>div:first-child {
+    display: none;
+  }
+  div.nav a {
+    font-size: 1.75em;
+  }
+  div.download {
+    padding: 3em 0;
+  }
+  div.download>div {
+    width: 100%;
+    padding: 0 2em 0;
+  }
+  div.download>div:first-child {
+    padding-bottom: 3em;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
