@@ -1,9 +1,9 @@
 version: 2
 
 jobs:
-  docker:
-    image: circleci/node
   build:
+    docker:
+      - image: circleci/node
     steps:
       # Enable Docker environment
       - setup_remote_docker
