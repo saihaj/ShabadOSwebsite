@@ -5,6 +5,8 @@ jobs:
     docker:
       - image: microsoft/azure-cli
     steps:
+      # Enable Docker environment
+      - setup_remote_docker
       # Fetch the source code
       - checkout
       # Log in to Docker Hub
