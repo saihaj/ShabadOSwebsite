@@ -1,9 +1,7 @@
 version: 2
 
 jobs:
-  deploy:
-    docker:
-      - image: microsoft/azure-cli
+  build:
     steps:
       # Enable Docker environment
       - setup_remote_docker
@@ -15,6 +13,11 @@ jobs:
       - run: docker build -t shabados/website:latest
       # Push the image to Docker Hub
       - run: docker push shabados/website:latest
+
+  deploy:
+    docker:
+      - image: microsoft/azure-cli
+    steps:
       # Log in to Azure
       - run: az login -u ${AZURE_USERNAME} -p ${AZURE_PASSWORD}
       # Get kubernetes credentials
@@ -25,7 +28,10 @@ workflows:
   version: 2
   deploy:
     jobs:
-      - deploy:
+      - build
           filters:
             branches:
               only: master
+      - deploy:
+          requires:
+            - build
