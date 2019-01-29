@@ -12,7 +12,7 @@ jobs:
       # Log in to Docker Hub
       - run: docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
       # Build the image, tagging it as latest
-      - run: docker build -t shabados/website:latest
+      - run: docker build -t shabados/website:latest .
       # Push the image to Docker Hub
       - run: docker push shabados/website:latest
 
