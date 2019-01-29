@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   docker:
-    - image: circleci/node
+    image: circleci/node
   build:
     steps:
       # Enable Docker environment
