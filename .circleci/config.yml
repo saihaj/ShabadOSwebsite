@@ -24,6 +24,8 @@ jobs:
       - run: az login --service-principal -u ${AZURE_USERNAME} -p ${AZURE_PASSWORD} --tenant ${AZURE_TENANT}
       # Get kubernetes credentials
       - run: az aks get-credentials --resource-group ${AZURE_RESOURCE_GROUP} --name ${AZURE_CLUSTER_NAME}
+      # Install Kubernetes CLI
+      - run: az aks install-cli
       # Pull the latest deployment with kubernetes
       - run: kubectl apply -f k8s.yml
 
