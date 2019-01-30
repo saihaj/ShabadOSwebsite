@@ -1,5 +1,4 @@
 *letsencrypt*
 nohup.log
-update*
 *.sass-cache*
 styles/main.css.*
