@@ -20,6 +20,8 @@ jobs:
     docker:
       - image: microsoft/azure-cli
     steps:
+      # Fetch the source code
+      - checkout
       # Log in to Azure
       - run: az login --service-principal -u ${AZURE_USERNAME} -p ${AZURE_PASSWORD} --tenant ${AZURE_TENANT}
       # Get kubernetes credentials
