@@ -18,7 +18,7 @@ spec:
         - image: shabados/website:latest
           name: website
           ports:
-            - containerPort: 8080
+            - containerPort: 80
               name: http
 ---
 apiVersion: v1
@@ -30,7 +30,7 @@ spec:
     app: websote
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 80
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
