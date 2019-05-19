@@ -16,7 +16,7 @@ spec:
         app: website
     spec:
       containers:
-        - image: shabados/website:latest
+        - image: shabados/website:{{ IMAGE_TAG }}
           name: website
           ports:
             - containerPort: 80
