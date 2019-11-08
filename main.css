@@ -115,7 +115,7 @@ a.iconified {
 div.header {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   padding: 2.25em 3em 3em;
 }
@@ -125,14 +125,14 @@ div.header h1 {
 }
 
 div.header>img {
-  width: 7em;
-  height: 7em;
+  width: 10em;
+  height: 10em;
   margin-right: 1.25em;
 }
 
 div.intro {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: 4em;
   flex-wrap: wrap;
@@ -141,7 +141,6 @@ div.intro {
 div.intro>p {
   width: 39%;
   font-size: 1.8em;
-  text-align: right;
   font-weight: 300;
 }
 
@@ -173,8 +172,8 @@ div.download-button > span path {
 }
 
 div.download div.download-button:hover {
-  background: #1a1a1a;
-  background: #0d47a1;
+  background: #302E2C;
+  background: #004873FF;
   color: #fff5e5;
 }
 
@@ -188,7 +187,7 @@ div.download div.download-button>span:first-child {
 
 div.download div.info {
   font-size: 0.75em;
-  color: #424242;
+  color: #676565;
 }
 
 div.download .other-platforms {
@@ -231,16 +230,17 @@ div.download .other-platforms>div.disabled>svg>path {
 
 /* smartphones in landscape */
 
-@media only screen and (max-device-width: 150px) {
+@media only screen and (max-device-width: 800px) {
   html {
-    font-size: 16px;
+    font-size: 12px;
   }
   body {
     width: 100%;
   }
   .body {
     margin: 0;
-    padding: 3em 1em;
+    min-width: inherit;
+    max-width: inherit;
   }
   h1 {
     line-height: 1.5em;
@@ -258,6 +258,9 @@ div.download .other-platforms>div.disabled>svg>path {
   img#live-search-gif {
     padding: 2em 0;
     width: 100%;
+  }
+  p + ul {
+    padding-left: 1em;
   }
   .github-octicon {
     position: relative;
@@ -314,9 +317,10 @@ div.download .other-platforms>div.disabled>svg>path {
     width: 100%;
   }
   .body {
-    font-size: inherit;
+    font-size: 9px;
     margin: 0;
-    padding: 3em 1em;
+    min-width: inherit;
+    max-width: inherit;
   }
   h1 {
     line-height: 1.5em;
