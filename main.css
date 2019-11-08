@@ -255,6 +255,10 @@ div.download div.download-button {
   font-size: 1.15em;
 }
 
+div.download-button > span path {
+  fill: #ffeff2;
+}
+
 div.download div.download-button:hover {
   background: #1a1a1a;
   background: #0d47a1;

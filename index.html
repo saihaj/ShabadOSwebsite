@@ -9,49 +9,68 @@
         <link rel="stylesheet" href="/main.css" />
         <script src="/includes/jquery-2.2.3.min.js"></script>
         <script>
-            $(document).ready(function() {                           
-                $(".repthis").click(function() {         
-                    $(this).hide();                      
-                    $(this).next("span").show();         
-                });                                      
-                $(".expander").click(function() {        
-                    $(this).next(".expandable").toggle();
-                });                                      
+            $(document).ready(function() {   
+				fetch( 'https://api.github.com/repos/shabados/desktop/releases' )
+				.then( res => res.json() )
+				.then( releases => releases.find( ( { name } ) => name.includes('beta') ) )
+				.then( ( { name, assets } ) => {
+				const filters = {
+					mac: /^Shabad.OS-.*dmg$/,
+					win: /^Shabad.OS-.*exe$/
+				}
+
+				const downloads = Object.entries( filters ).reduce( ( urls,  [ os, filter ] ) => ( {
+					...urls,
+					[ os ]: assets.find( ( { name } ) => name.match( filter ) ).url
+				} ), {} )
+
+				return { name, downloads }
+				} )
+				.then( ( { name, downloads } ) => {
+				// Add it to the DOM here
+				document.getElementsByClassName( 'download-version' ).innerText = name
+
+				document.getElementById( 'windows-download' ).setAttribute( 'href', downloads.win )
+				document.getElementById( 'mac-download' ).setAttribute( 'href', downloads.mac )
+				} )                                    
             });
         </script>
         <title>Shabad OS</title>
 	</head>
     <body id="top">
     	<div class="body">
-    		<div class="nav">
-    			<div>
-	    			<div><a href="#top"><img src="/includes/logo.png" alt="Shabad OS" />Shabad OS</a></div>
-	    			<div><a href="#install">Install</a></div>
-	    			<div><a href="#features">Features</a></div>
-	    			<div><a href="#tutorial">Tutorial</a></div>
-	    			<div><a href="#support">Support</a></div>
-    			</div>
-    		</div>
 			<div class="header"><img src="/includes/logo.png" alt="Shabad OS" /><h1>Shabad OS</h1></div>
 	            <div class="intro">
-		            <p>The fastest and most advanced application for searching, navigating, and displaying shabads.</p>
+		            <p>New Shabad OS is more simple, powerful, and accurate than ever.</p>
 					<img id="live-search-gif" src="/includes/live-search.gif" alt="Search Examples" />
 				</div>
-            	<p>It is the first modern app to incorporate the following features:</p>
+            	<p>With a continuously improving feature set:</p>
 	            <ul>
-	            	<li><label>Unified</label> Multiple displays and multiple controllers, all in sync</li>
-	            	<li><label>Auto Select</label> Logic assistant to switch between repeated lines (<span class="gurmukhi">AsQweI</span>) and all the other lines (<span class="gurmukhi">AMqrw</span>)</li>
-	            	<li><label>InSight</label> Next line shown for sangat to follow along with confidence</li>
+					<li><label>Open Source</label> Sikh Bani and Panthic text publicly corrected with historical journaling.</li>
+					<li><label>Unified</label> Multiple displays and multiple controllers, all in sync</li>
+					<li><label>Live Captions</label> Easy and elegant subtitling for live broadcasts</li>
+	            	<li><label>Auto Select</label> Smart logic assistant to switch between lines</li>
+	            	<li><label>InSight</label> Previous/next lines to follow along with confidence</li>
 	            	<li><label>Live Captions</label> Easy and elegant subtitling for live broadcasts</li>
-            	</ul>
-	            <p>And more! Our <a href="#features">features</a> section goes into more detail and covers more topics. Check out our <a href="#support">support</a> section to voice your desires and missing features. Otherwise, read on to <a href="#install">install</a> Shabad OS!</p>
+				</ul>
 				<div id="install" class="download">
 					<div>
-						<a href="/updates/win/Shabad OS Setup 18.2.9.exe" class="download-button"><div class="download-button"><span>Download</span> <span>Shabad OS</span></div></a>
-						<div class="info">Version 18.2.9 ❁ Windows</div>
+						<a href="#" id="windows-download" class="download-button">
+							<div class="download-button">
+								<span><Download for</span> <span>Windows</span>
+							</div>
+						</a>
+						<div class="info"><span class="download-version"></span> ❁ 32-bit & 64-bit Windows 7/8/10</div>
 					</div>
+
 					<div>
-						<div class="other-platforms">
+						<a href="#" id="mac-download" class="download-button">
+							<div class="download-button">
+								<span><Download for</span> <span>macOS</span>
+							</div>
+						</a>
+						<div class="info"><span class="download-version"></span> ❁ Apple macOS</div>
+						<!--<div class="other-platforms">
 							<div class="Windows">
 								<svg width="24px" height="24px" viewBox="0 0 24 24">
 								    <path fill="#000000" d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
@@ -79,119 +98,13 @@
 						    </div>
 						</div>
 						<div class="other-platform-info">
-							<!--<div class="windows"><a href="updates/win/Shabad OS Setup 17.6.28.exe">Desktop</a> (Windows 7+)</div>-->
-							<div class="windows"><a href="https://github.com/ShabadOS/desktop">Source code available at GitHub</a></div>
-						</div>
+							<!--<div class="windows"><a href="updates/win/Shabad OS Setup 17.6.28.exe">Desktop</a> (Windows 7+)</div>--><!--
+							<div class="windows">Source code available at <a class="iconified" href="https://github.com/ShabadOS"><svg aria-hidden="true" class="github-octicon" version="1.1" width="20px" height="20px" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a></div>
+						</div>-->
 					</div>
 				</div>
-	        	<p><label>Windows Users</label> Remember to accept the firewall traffic prompt for full functionality. Otherwise they won't be able to interface through the network for multiple controllers and displays.</p>
-	        	<p><b>Android, iOS, macOS, and Linux versions are in development.</b> Desktop applications for macOS and Linux can already be built from source code. The "OS" in our name stands for this project being as open source as possible. Help out by submitting issues, forking repos, sending pull requests, and more at <a class="iconified" href="https://github.com/ShabadOS"><svg aria-hidden="true" class="github-octicon" version="1.1" width="20px" height="20px" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>.</p>
-	        	<p><b>Change Log</b></p>
-	            <ul class="changeLog">
-
-	                <li class="expander">2018 February 9</li>
-	                <ul class="expandable">
-	                	<li>Replaced menu item (OBS) with new Live Caption Tool. This tool allows users to easily format and design their livestream captioning. It includes instructions for setting up OBS (Open Broadcaster Software). This should greatly reduce the effort required to setup broadcast subtitles. Click "Menu" in the Controller, then click "Live Caption Tool", and finally click "Help" for more information.</li>
-	                	<li>Removed next line and added english transliteration for default displays.</li>
-				<li>Added 3 color themes: White and Yellow on Blue as well as Pastel Colors on Dark.</li>
-				<li>Fixed Akhand Paath mode.</li>
-	            	</ul>
-
-	                <li class="expander">2017 November 24</li>
-	                <ul class="expandable">
-	                	<li>Using the cap height as reference for English caused tiny fonts. We have reverted to using 1/2 the cap-height of gurbani font size as the x-height for english. The benefit is that English is about 35% larger and Punjabi Darpan is about 25% larger. The negative is that line-heights were maintained to fit as much data as possible on typical projector resolution ratios of 4:3.</li>
-	                	<li>In addition, we made the change to show only one line of the next line to conserve considerable space. Before, we used to allocate two lines of space, and sometimes the next line could fit on one, resulting in wastage.</li>
-	            	</ul>
-
-	                <li class="expander">Archived</li>
-	                <ul class="expandable">
-
-			        <li class="expander">2017 November 23</li>
-			        <ul class="expandable">
-			        	<li>Added connect feature in menu. You can connect to other compatible versions of Shabad OS and vice versa using the gui. Personal settings will be maintained. Your server will automatically be broadcasted on the network.</li>
-			        	<li>Added color themes (Day, Night, and Philosophiae).</li>
-			        	<li>Added layout options (Normal, Space Around, and Space Between). There is a bug with "Space Evenly" in electron, but will work in Chrome.</li>
-			        	<li>With the new layout options, removing Next Line will open up free space. This fixes a bug from previous versions.</li>
-			        	<li>Rehauled font sizes to properly display next line when font size is changed.</li>
-			        	<li>Added different height options for popped in controller.</li>
-			        	<li>Added the option to not automatically split gurbani lines by their heavy pause and line-endings.</li>
-			        	<li>Added larivaar gurbani option. Useful in combination with turning off previous "split gurbani lines" option.</li>
-			        	<li>Added the option to show or hide a background picture. You can place any custom file in place of the existing ones to show your own background.</li>
-			        	<li>Various bug fixes and efficiency throughputs.</li>
-			    	</ul>
-
-		                <li class="expander">2017 June 28</li>
-		                <ul class="expandable">
-		                	<li>Fixed database for shabads incorrectly using nbsp; instead of normal space character. This fixes some long english translations from being only one line scrolling off the screen.</li>
-		            	</ul>
-
-		                <li class="expander">2017 March 24</li>
-		                <ul class="expandable">
-		                	<li>Fixed Ctrl+left,right,up,down hotkeys.</li>
-		                	<!--<li>Fixed english translations from overflowing the screen in Bhai Gurdas Ji's bani.</li>-->
-		                	<li>Fixed scrolling to the correct line of Asa di Var when using the back arrow/hotkey as opposed to the Bani/History methods.</li>
-		                	<li>Added shortcut hints to title when hovering over icons.</li>
-		                	<li>Edited a shabad to match the Amrit Kirtan version. Original version can be found in iGurbani database. Here are the before and after versions of the first line changed:</li>
-		                	<ul>
-		                		<li><span class="gurmukhi">pUCq pQik iqh mwrg n DwrY pig pRIqm kY dys kYsy bwqnu ky jweIAY</span></li>
-		                		<li><span class="gurmukhi">pUCq piQk iqh mwrig n DwrY pig pRIqm kY dys kYsy bwqn sy jweIAY</span></li>
-		            		</ul>
-		                	<li>Changed the gap between icons at the bottom-right of the navigator so it won't look as if an icon is missing.</li>
-		            	</ul>
-
-		                <li class="expander">2017 February 9</li>
-		                <ul class="expandable">
-		                	<li>Small feature adding left and right arrow keys to mimic up and down arrow keys for changing lines. This should help on laptops with smaller up/down keys than left/right. Also should help those that are familiar with PowerPoint Presentations for switching slides.</li>
-		                	<li>Search queries are saved when using the top-left arrows or ctrl+left/right arrow keys.</li>
-		                	<li>Fixed a memory leak that caused crashes during prolonged use.</li>
-		            	</ul>
-
-		                <li class="expander">2016 December 3</li>
-		                <ul class="expandable">
-		                	<li>Small fix for low resolution laptops (1024x768 and lower).</li>
-		            	</ul>
-
-	                    <li class="expander">2016 November 10</li>
-	                    <ul class="expandable">
-	                    	<li>Added a font slider to the settings menu.</li>
-	                	</ul>
-
-	                    <li class="expander">2016 November 4</li>
-	                    <ul class="expandable">
-	                    	<li>Vastly improved UI with custom titlebars, new color scheme, icons, and scrollbars. Improved UX with hints for keyboard shortcuts (when controller is hidden), hovering over menu items, and short animations for orientation during jumps.</li>
-	                    	<li>Organized all shortcuts under the ctrl key, except for the simple "?" hotkey. Type shift+/ on your keyboard to see some available shortcuts. Still in the process of documenting them all.</li>
-	                    	<li>Mouse only users will benefit from the many new controls implemented. Aside from searching, most features should now be available with a trackpad / mouse.</li>
-	                    	<li>Tested and improved the mobile version. When navigating a shabad there will always be a gap at the top and bottom. This allows you to use muscle memory for going "up" or "down" regardless of where you are in the shabad. If you're at the top, hitting the top 1/3rd will do nothing and the bottom 1/3rd will take you to the next line. Same concept for the last line at the bottom.</li>
-	                    	<li>Formatting update for the Kobo eReader device. With the new font it should always show the next section coming up. (There is still a bug with very long passages, but those cases are rare. We'll try to fix that in the future.)</li>
-	                    	<li>Formatting for broadcast pages updated. Gurbani should have no gaps between words now.</li>
-	                    	<li>Fixed a small bug with the display trying to scroll when reaching the bottom of the navigator.</li>
-	                	</ul>
-
-	                    <li class="expander">2016 October 26</li>
-	                    <ul class="expandable">
-	                    	<li>Fixed a bug that was causing formatting issues on all lines in display and controller.</li>
-	                    	<li>Made it so the menubar is visible by default and hidden in fullscreen. You may still hit "alt" on your keyboard to activate the menubar while in fullscreen.</li>
-	                    	<li>Fixed being able to toggle "Next Line" in settings.</li>
-	                    	<li>Formatting; Combined "Rahao" with the line before it to save vertical space.</li>
-	                    	<li>Removed vishraam from controller.</li>
-	                    	<li>Cleared search results if clearing search query.</li>
-	                	</ul>
-
-	                    <li class="expander">2016 October 22</li>
-	                    <ul class="expandable">
-	                    	<li>Users can now open a new window for the navigator with Ctrl+N or by opening up the menu bar with alt and going into Window > New Navigator Window.</li>
-	                    	<li>Navigating back or forward a page has been changed from Alt+Left Arrow & Alt+Right Arrow to Ctrl+Left Arrow & Ctrl+Right Arrow.</li>
-	                    	<li>History can now be downloaded as a .csv file from the alt menu (Tap alt on your keyboard).</li>
-	                    	<li>Toggle Line was renamed "Set Main". After setting the main line, it will change to "Toggle Line".</li>
-	                	</ul>
-
-	        			<li class="expander">2016 October 18</p></li>
-	        			<ul class="expandable">
-	        				<li>Wrapped program in Electron, created an installer for Windows, and implemented an Updater.</li>
-	        				<li>Program will automatically download updates in the background when connected to the internet. User will be notified of update with a pop-up message. Simply close all windows and restart the program when prompted.</li>
-	        			</ul>
-	    			</ul>
-				</ul>
+				<p>Source code available at <a class="iconified" href="https://github.com/ShabadOS"><svg aria-hidden="true" class="github-octicon" version="1.1" width="20px" height="20px" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>.</p>
+			<!--
 	        <h2 id="features">Features</h2>
 	            <h3><span>Fast Searching</span><span>Search</span></h3>
 	        	<p>Shabad OS will order shorter results (2 or 3 word matches) before search queries that are longer. This makes it easier to find the shabad you're looking for if the entire line is short. It's also really quick to find these matches. Many searches can happen in the blink of an eye or seamlessly as you type (results varying from machine to machine).</p>
@@ -227,19 +140,8 @@
 	    		<p>Since we can control so many devices, wouldn't it be neat if we could automatically update the subtitles for our YouTube or Facebook live streams? With Shabad OS you can! Using any streaming software (we recommend <a href="https://obsproject.com/">OBS</a>), you can add our green-screen version of the display to your live stream. Just use your software to capture the green and make it transparent, and voila! You have subtitles on your video that are updated whenever the controllers on the network change the line.</p>
 	    		<h3><span>Conclusion</span><span></span></h3>
 	    		<p>There you have it. With Shabad OS, one person could potentially be controlling the projectors in the gurdwara, the tablet readers for older folk in the back of the hall, the TVs around the gurdwara outside the main hall, the subtitles for the YouTube live stream, and all that from their phone!</p>
-	    		<p>We've thought through this stuff many times and that's because we've been using this software for years now. All the features like showing the next line to the sangat and kirtaniye and autoselecting the correct lines is crucial to a seamless experience. Our program is designed to perform faster than anything else currently available. Give it a try, help us with your feedback, and let's work together to benefit the global Sikh sangat.</p>
-
-			<h2 id="tutorial">Tutorial</h2>
-				<p>On first run, you'll be greated with a blank window (display) with a smaller embedded window (navigator) in the bottom right. You can hover over any button for a description in it's titlebar. For instance hover over the second to last icon in the navigator's titlebar. This button will let you minimize the navigator.</p>
-				<p>There are many shortcuts available. If you ever want to look up a shortcut, type the question mark (?) key on your keyboard (shift + /). This will bring up a menu showing you the various shortcuts.</p>
-				<p>To connect with a mobile device, hover over the titlebar of the display window. This will get you the web address to type into your phone. You can similarly join this address on different laptops, tablets, or even smart TVs. A couple noteworthy addresses include adding "/display" or "/kobo" to the end of the program's address. Example: 192.168.X.XXX:8080/display. You can use this to clone the display. The kobo link can be used on modern E-Ink technologies, similar to the Kindle, as an alternative view to reading the shabad.</p>
-
-			<h2 id="support">Support</h2>
-				<p>We'll try our best to help you within the scope of our project. If you're having any trouble setting up Shabad OS or implementing any of the official features, the preferred method is to open a "New issue" on our <a href="https://github.com/ShabadOS/desktop/issues">GitHub</a>. If you can't manage that, then try to message us through our social media accounts: <a href="https://twitter.com/shabad_os">Twitter</a>, <a href="https://www.instagram.com/shabad_os">Instagram</a>, <a href="https://www.facebook.com/ShabadOS">Facebook</a>, and <a href="https://www.youtube.com/channel/UCi8UjVV2Lz8H8J2Cka6iVsA/">YouTube</a>. If all else fails, then try the email address found on our <a href="https://github.com/ShabadOS">GitHub</a> profile.</p>
-				<h3><span>I can't connect </span><span></span></h3>
-	    		<p>(1) Did you allow the program through the firewall when you first installed? Even so, double-check your firewall settings for the program. (2) Are you sure you have the right IP Address? Sometimes there is a networking problem and the IP address shows up as 169.254.XXX.XXX. If so, run ipconfig for the proper address. Don't forget the port number as well!</p>
-	    		<h3>When will you release Mac OS and Linux versions?</h3>
-	    		<p>Soon! Mac and Linux developers can use our github to install their own Shabad OS either as a standalone web server or wrap it in electron for the full desktop experience. Rest assured it's on it's way and will most definitely be out in 2018.</p>
+				<p>We've thought through this stuff many times and that's because we've been using this software for years now. All the features like showing the next line to the sangat and kirtaniye and autoselecting the correct lines is crucial to a seamless experience. Our program is designed to perform faster than anything else currently available. Give it a try, help us with your feedback, and let's work together to benefit the global Sikh sangat.</p>
+				-->
 		</div>
     </body>
 </html>
