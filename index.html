@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="shortcut icon" href="includes/favicon.ico" type="image/x-icon" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
         <!--<link rel="stylesheet" href="styles/reset.css" />-->
         <link rel="stylesheet" href="/main.css" />
-        <script src="/includes/jquery-2.2.3.min.js"></script>
         <script>
-            $(document).ready(function() {   
-				fetch( 'https://api.github.com/repos/shabados/desktop/releases' )
-				.then( res => res.json() )
-				.then( releases => releases.find( ( { name } ) => name.includes('beta') ) )
-				.then( ( { name, assets } ) => {
-				const filters = {
-					mac: /^Shabad.OS-.*dmg$/,
-					win: /^Shabad.OS-.*exe$/
-				}
+            document.addEventListener( 'DOMContentLoaded', function() {   
+                fetch( 'https://api.github.com/repos/shabados/desktop/releases' )
+                .then( res => res.json() )
+                .then( releases => releases.find( ( { name } ) => name.includes('beta') ) )
+                .then( ( { name, assets } ) => {
+                const filters = {
+                    mac: /^Shabad.OS-.*dmg$/,
+                    win: /^Shabad.OS-.*exe$/
+                }
 
-				const downloads = Object.entries( filters ).reduce( ( urls,  [ os, filter ] ) => ( {
-					...urls,
-					[ os ]: assets.find( ( { name } ) => name.match( filter ) ).url
-				} ), {} )
+                const downloads = Object.entries( filters ).reduce( ( urls,  [ os, filter ] ) => ( {
+                    ...urls,
+                    [ os ]: assets.find( ( { name } ) => name.match( filter ) ).browser_download_url
+                } ), {} )
 
-				return { name, downloads }
-				} )
-				.then( ( { name, downloads } ) => {
-				// Add it to the DOM here
-				document.getElementsByClassName( 'download-version' ).innerText = name
+                return { name, downloads }
+                } )
+                .then( ( { name, downloads } ) => {
+                // Add it to the DOM here
+                document.getElementsByClassName( 'download-version' ).innerText = name
 
-				document.getElementById( 'windows-download' ).setAttribute( 'href', downloads.win )
-				document.getElementById( 'mac-download' ).setAttribute( 'href', downloads.mac )
-				} )                                    
+                document.getElementById( 'windows-download' ).setAttribute( 'href', downloads.win )
+                document.getElementById( 'mac-download' ).setAttribute( 'href', downloads.mac )
+                } )                                    
             });
         </script>
         <title>Shabad OS</title>
-	</head>
+    </head>
     <body id="top">
     	<div class="body">
 			<div class="header"><img src="/includes/logo.png" alt="Shabad OS" /><h1>Shabad OS</h1></div>
 	            <div class="intro">
-		            <p>New Shabad OS is more simple, powerful, and accurate than ever.</p>
+		            <p>The new Shabad OS is more simple, powerful, and accurate than ever.</p>
 					<img id="live-search-gif" src="/includes/live-search.gif" alt="Search Examples" />
 				</div>
             	<p>With a continuously improving feature set:</p>
@@ -51,13 +50,12 @@
 					<li><label>Live Captions</label> Easy and elegant subtitling for live broadcasts</li>
 	            	<li><label>Auto Select</label> Smart logic assistant to switch between lines</li>
 	            	<li><label>InSight</label> Previous/next lines to follow along with confidence</li>
-	            	<li><label>Live Captions</label> Easy and elegant subtitling for live broadcasts</li>
 				</ul>
 				<div id="install" class="download">
 					<div>
 						<a href="#" id="windows-download" class="download-button">
 							<div class="download-button">
-								<span><Download for</span> <span>Windows</span>
+								<span>Download for</span> <span>Windows</span>
 							</div>
 						</a>
 						<div class="info"><span class="download-version"></span> ❁ 32-bit & 64-bit Windows 7/8/10</div>
@@ -66,7 +64,7 @@
 					<div>
 						<a href="#" id="mac-download" class="download-button">
 							<div class="download-button">
-								<span><Download for</span> <span>macOS</span>
+								<span>Download for</span> <span>macOS</span>
 							</div>
 						</a>
 						<div class="info"><span class="download-version"></span> ❁ Apple macOS</div>

@@ -8,13 +8,12 @@
 }
 
 html {
-  color: #212121;
-  background-color: #ffffff;
-  background-image: url("./includes/bg.png");
-  background-repeat: no-repeat;
+  color: #413F3E;
+  background-color: #F0EDE9;
+  background-image: url("./includes/avani-logo-pattern.png");
   font-family: "Roboto", "Segoe UI", "Helvetica", "Arial";
   line-height: 2;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 body {
@@ -23,21 +22,20 @@ body {
 
 .body {
   margin: 0 auto 3em;
-  background: rgba(255, 255, 255, 0.2);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 7.5%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #FDFBF8 7.5%);
   min-width: 33em;
   max-width: 48em;
   padding: 3em;
 }
 
 h1 {
-  font-size: 4.666em;
+  font-size: 4em;
   font-weight: 300;
 }
 
 h2 {
   color: #424242;
-  font-size: 3.333em;
+  font-size: 3em;
   font-weight: normal;
   margin: 0;
   padding-top: 1em;
@@ -81,122 +79,37 @@ b {
 }
 
 a,
-.link,
-.expander {
-  color: rgba(13, 71, 161, 0.75);
+.link {
+  color: #006799FF;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(13, 71, 161, 0.3);
+  border-bottom: 1px dashed #006799FF;
   cursor: pointer;
 }
 
 a path,
-.link path,
-.expander path {
-  fill: rgba(13, 71, 161, 0.75);
+.link path {
+  fill: #006799FF;
 }
 
 a:hover,
-.link:hover,
-.expander:hover {
+.link:hover {
   text-decoration: none;
-  color: #0d47a1;
-  border-bottom: 1px solid rgba(13, 71, 161, 0.9);
+  color: #004873FF;
+  border-bottom: 1px solid #004873FF;
 }
 
 a:hover path,
-.link:hover path,
-.expander:hover path {
-  fill: #0d47a1;
-}
-
-.expander {
-  border-bottom: 0;
-}
-
-.expander:hover {
-  border-bottom: 0;
+.link:hover path {
+  fill: #004873FF;
 }
 
 a.iconified {
   display: inline-block;
 }
 
-ul.changeLog {
-  list-style: none;
-  padding: 0;
-}
-
-ul.changeLog ul {
-  list-style: none;
-  padding: 0 0 0 1.75em;
-}
-
-ul.changeLog li {
-  padding-left: 2em;
-}
-
-ul.changeLog li.expander:hover {
-  background: rgba(13, 71, 161, 0.2);
-}
-
-ul.changeLog li:before {
-  content: '‣';
-  padding: 0 .5em 0 0;
-  margin-left: -1.35em;
-}
-
-.withdis,
-.expandable {
-  display: none;
-}
-
 .gurmukhi {
   font-family: 'Gurbani Akhar Heavy';
   font-size: 0.95em;
-}
-
-div.nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(255, 236, 239, 0.15);
-}
-
-div.nav>div {
-  margin: 0 auto;
-  padding: 0 3em;
-  background: linear-gradient(180deg, #ffd0d5, rgba(255, 208, 213, 0.875) 100%);
-  min-width: 33em;
-  max-width: 48em;
-  display: flex;
-  justify-content: space-between;
-}
-
-div.nav>div>div {
-  display: inline-block;
-}
-
-div.nav img {
-  width: 1.25em;
-  vertical-align: text-bottom;
-  opacity: 0.75;
-  margin-right: 0.25em;
-}
-
-div.nav a {
-  color: #303030;
-  font-size: 1.15em;
-  border-bottom: 1px dashed rgba(48, 48, 48, 0.4);
-}
-
-div.nav a:hover {
-  color: #000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
-}
-
-div.nav a:hover img {
-  opacity: 1;
 }
 
 div.header {
@@ -212,9 +125,9 @@ div.header h1 {
 }
 
 div.header>img {
-  width: 14em;
-  height: 14em;
-  margin-right: .5em;
+  width: 7em;
+  height: 7em;
+  margin-right: 1.25em;
 }
 
 div.intro {
@@ -227,7 +140,7 @@ div.intro {
 
 div.intro>p {
   width: 39%;
-  font-size: 1.5em;
+  font-size: 1.8em;
   text-align: right;
   font-weight: 300;
 }
