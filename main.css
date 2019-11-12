@@ -121,6 +121,7 @@ div.header>img {
   width: 10em;
   height: 10em;
   margin-right: 1.25em;
+  -webkit-filter: drop-shadow(0px 0px .5em rgba(240,237,233,.75));
 }
 
 div.intro {
