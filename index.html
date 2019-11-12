@@ -10,62 +10,67 @@
   <link href="main.css" rel="stylesheet"><!--<link rel="stylesheet" href="styles/reset.css" />-->
   <script>
 		document.addEventListener( 'DOMContentLoaded', function() {   
-				function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+			function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
-				function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+			function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
 
-				function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+			function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
 
-				function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+			function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-				function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+			function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-				function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+			function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-				function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+			function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-				function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+			function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-				function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+			function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-			fetch('https://api.github.com/repos/shabados/desktop/releases').then(function(res) {
-		    return res.json();
-		  }).then(function(releases) {
-		    return releases.find(function(_ref) {
-		      var name = _ref.name;
-		      return name.includes('beta');
-		    });
-		  }).then(function(_ref2) {
-		    var name = _ref2.name,
-		      assets = _ref2.assets;
-		    var filters = {
-		      mac: /^Shabad.OS-.*dmg$/,
-		      win: /^Shabad.OS-.*exe$/
-		    };
-		    var downloads = Object.entries(filters).reduce(function(urls, _ref3) {
-		      var _ref4 = _slicedToArray(_ref3, 2),
-		        os = _ref4[0],
-		        filter = _ref4[1];
-		      return _defineProperty({ ...urls
-		      }, os, assets.find(function(_ref5) {
-		        var name = _ref5.name;
-		        return name.match(filter);
-		      }).browser_download_url);
-		    }, {});
-		    return {
-		      name: name,
-		      downloads: downloads
-		    };
-		  }).then(function(_ref7) {
-		    var name = _ref7.name,
-		      downloads = _ref7.downloads;
-		    // Add it to the DOM here
-		    _toConsumableArray(document.getElementsByClassName('download-version')).forEach(function(el) {
-		      return el.innerText = name;
-		    });
-		    document.getElementById('windows-download').setAttribute('href', downloads.win);
-		    document.getElementById('mac-download').setAttribute('href', downloads.mac);
-		  });
+			fetch('https://api.github.com/repos/shabados/desktop/releases').then(function (res) {
+				return res.json();
+			}).then(function (releases) {
+				return releases.find(function (_ref) {
+					var name = _ref.name;
+					return name.includes('beta');
+				});
+			}).then(function (_ref2) {
+				var name = _ref2.name,
+						assets = _ref2.assets;
+				var filters = {
+					mac: /^Shabad.OS-.*dmg$/,
+					win: /^Shabad.OS-.*exe$/
+				};
+				var downloads = Object.entries(filters).reduce(function (urls, _ref3) {
+					var _ref4 = _slicedToArray(_ref3, 2),
+							os = _ref4[0],
+							filter = _ref4[1];
+
+					return _defineProperty({ ...urls
+					}, os, assets.find(function (_ref5) {
+						var name = _ref5.name;
+						return name.match(filter);
+					}));
+				}, {});
+				return {
+					name: name,
+					downloads: downloads
+				};
+			}).then(function (_ref7) {
+				var name = _ref7.name,
+						downloads = _ref7.downloads;
+
+				// Add it to the DOM here
+				_toConsumableArray(document.getElementsByClassName('download-version')).forEach(function (el) {
+					return el.innerText = name;
+				});
+
+				document.getElementById('windows-download').setAttribute('href', downloads.win.browser_download_url);
+				document.getElementById('windows-download-size').innerText = Math.round(downloads.win.size / 1000 / 1000);
+				document.getElementById('mac-download').setAttribute('href', downloads.mac.browser_download_url);
+				document.getElementById('mac-download-size').innerText = Math.round(downloads.mac.size / 1000 / 1000);
+			});
 		});
   </script>
 </head>
@@ -92,7 +97,7 @@
           <span>Download</span> <span><i class="fab fa-windows fa-fw"></i> Windows</span>
         </div></a>
         <div class="info">
-          <span class="download-version"></span> ❁ 32-bit & 64-bit Windows 7/8/10
+          Version <span class="download-version"></span> ❁ <span id="windows-download-size"></span> MB
         </div>
       </div>
       <div>
@@ -101,7 +106,7 @@
           <span>Download</span> <span><i class="fab fa-apple fw-fw"></i> macOS</span>
         </div></a>
         <div class="info">
-          <span class="download-version"></span> ❁ Apple macOS
+          Version <span class="download-version"></span> ❁ <span id="mac-download-size"></span> MB
 				</div>
 				<!--<div class="other-platforms">
 					<div class="Windows">
