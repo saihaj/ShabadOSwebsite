@@ -33,7 +33,7 @@
 			}).then(function (releases) {
 				return releases.find(function (_ref) {
 					var name = _ref.name;
-					return name.includes('beta');
+					return !(name.includes('beta') || name.includes('alpha'));
 				});
 			}).then(function (_ref2) {
 				var name = _ref2.name,
