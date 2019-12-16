@@ -28,13 +28,8 @@
 
 			function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-			fetch('https://api.github.com/repos/shabados/desktop/releases').then(function (res) {
+			fetch('https://api.github.com/repos/shabados/desktop/releases/latest').then(function (res) {
 				return res.json();
-			}).then(function (releases) {
-				return releases.find(function (_ref) {
-					var name = _ref.name;
-					return !(name.includes('beta') || name.includes('alpha'));
-				});
 			}).then(function (_ref2) {
 				var name = _ref2.name,
 						assets = _ref2.assets;
