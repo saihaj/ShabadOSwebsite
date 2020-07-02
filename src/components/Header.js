@@ -20,16 +20,16 @@ const Header = () => {
     <header>
       <nav className="flex items-center justify-between flex-wrap bg-white p-6 md:py-6 md:px-8">
 
-        <div
+        <Link
+          to="/"
           className={cx(
             'flex items-center flex-shrink-0 px-4 py-1 mr-10',
-            'text-white bg-pink-500',
+            'text-white text-xl font-bold bg-pink-500',
+            'tracking-tight no-underline',
           )}
         >
-          <Link to="/" className="font-bold text-xl tracking-tight no-underline">
-            {title}
-          </Link>
-        </div>
+          {title}
+        </Link>
 
         {/* Mobile Browsers menu button */}
         <div className="block md:hidden">
