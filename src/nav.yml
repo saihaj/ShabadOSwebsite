@@ -1,0 +1,8 @@
+- title: Projects
+  route: /projects
+
+- title: Developers
+  route: /developers
+
+- title: About
+  route: /about
