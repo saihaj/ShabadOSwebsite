@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import { Link } from 'gatsby'
 import { MarkGithubIcon } from '@primer/octicons-react'
 
 const Footer = () => (
@@ -12,14 +11,14 @@ const Footer = () => (
         © 2016 - {moment().format( 'YYYY' )} Shabad OS
       </p>
 
-      <Link
+      <a
         className="text-black"
-        to="https://git.shabados.com"
+        href="https://git.shabados.com"
         target="_blank"
         rel="noopener noreferrer"
       >
         <MarkGithubIcon size="medium" />
-      </Link>
+      </a>
 
     </nav>
 
