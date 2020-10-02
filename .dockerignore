@@ -1,0 +1,36 @@
+*.swp
+data
+data-journal
+*.DS_Store
+tmux*
+.file_tags.kaktmp
+.kak.tags.namecache
+tags
+.vscode*
+nohup.out
+*.sass-cache*
+styles/main.css.*
+*.iml
+.idea/
+tmp
+dist
+.nyc_output
+coverage
+build
+.next
+.github
+
+# Log Files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Project related
+node_modules
+.eslintignore
+.eslintrc
+.gitignore
+.dockerignore
+.prettierrc
+LICENSE
+README
