@@ -7,7 +7,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --color",
-    "typecheck": "tsc --pretty"
+    "test:types": "tsc --pretty"
   },
   "repository": {
     "type": "git",
