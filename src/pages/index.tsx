@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { FaGithub, FaWindows, FaApple } from 'react-icons/fa'
 
 import DownloadButton from '../components/DownloadButton'
+import Seo from '../components/Seo'
 
 import './index.css'
 
@@ -50,7 +51,7 @@ const Home = () => {
 
   return (
     <div className="body">
-
+      <Seo title="Home" />
       <div className="header">
         <img alt="Shabad OS" src="/logo.png" />
         <h1>Shabad OS</h1>

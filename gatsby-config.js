@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Shabad OS',
+    description: 'Our mission is to learn about the Shabad and make it universally accessible to every person on the planet.',
+    author: 'Shabad OS Team <team@shabados.com>',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
