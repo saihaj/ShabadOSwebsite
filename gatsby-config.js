@@ -14,5 +14,15 @@ module.exports = {
         icon: 'static/logo.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        fileName: './graphqlTypes.ts',
+        documentPaths: [
+          './src/**/*.{ts,tsx}',
+          './node_modules/gatsby-*/**/*.js',
+        ],
+      },
+    },
   ],
 }
