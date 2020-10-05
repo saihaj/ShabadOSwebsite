@@ -1,36 +1,30 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react'
 import { FaGithub, FaWindows, FaApple } from 'react-icons/fa'
+import { Endpoints } from '@octokit/types'
 
 import DownloadButton from '../components/DownloadButton'
 import Seo from '../components/Seo'
 
 import './index.css'
 
-type GithubDownloadRes = {
-  /**
-  * Version name
-  */
-  name: string,
+type GithubLatestReleaseResponse = Endpoints['GET /repos/:owner/:repo/releases/latest']['response']['data']
+
+type GithubDownloadResponse = {
+  name: GithubLatestReleaseResponse['name'],
   downloads: {
-    mac : {
-      browser_download_url:string,
-      size: number,
-    },
-    win : {
-      browser_download_url:string,
-      size: number,
-    },
+    mac : GithubLatestReleaseResponse['assets'][0],
+    win : GithubLatestReleaseResponse['assets'][0],
   },
 }
 
 const Home = () => {
-  const [ data, setData ] = useState<GithubDownloadRes | null>( null )
+  const [ githubResponse, setGithubResponse ] = useState<GithubDownloadResponse | null>( null )
 
   useEffect( () => {
     fetch( 'https://api.github.com/repos/shabados/desktop/releases/latest' )
       .then( ( res ) => res.json() )
-      .then( ( { name, assets } ):GithubDownloadRes => {
+      .then( ( { name, assets }:GithubLatestReleaseResponse ) => {
         const filters = {
           mac: /^Shabad.OS-.*dmg$/,
           win: /^Shabad.OS-.*exe$/,
@@ -40,12 +34,13 @@ const Home = () => {
           .entries( filters )
           .reduce( ( urls, [ os, filter ] ) => ( {
             ...urls,
-            [ os ]: assets.find( ( { name } ) => name.match( filter ) ),
+            // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
+            [ os ]: assets.find( ( { name: platformName } ) => platformName.match( filter ) ),
           } ), {} )
 
-        return { name, downloads }
+        return { name, downloads } as GithubDownloadResponse
       } )
-      .then( ( res ) => setData( res ) )
+      .then( ( res ) => setGithubResponse( res ) )
       .catch( ( err ) => new Error( err ) )
   }, [] )
 
@@ -99,23 +94,23 @@ const Home = () => {
       </p>
 
       {/* Download Buttons */}
-      {data && (
+      {githubResponse && (
         <div className="download" id="install">
 
           <DownloadButton
             label="Windows"
             platformIcon={FaWindows}
-            downloadUrl={data.downloads.win.browser_download_url}
-            semver={data.name}
-            size={data.downloads?.win.size}
+            downloadUrl={githubResponse.downloads.win.browser_download_url}
+            semver={githubResponse.name}
+            size={githubResponse.downloads.win.size}
           />
 
           <DownloadButton
             label="macOS"
             platformIcon={FaApple}
-            downloadUrl={data.downloads.mac.browser_download_url}
-            semver={data.name}
-            size={data.downloads?.mac.size}
+            downloadUrl={githubResponse.downloads.mac.browser_download_url}
+            semver={githubResponse.name}
+            size={githubResponse.downloads.mac.size}
           />
 
         </div>

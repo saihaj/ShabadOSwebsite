@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ShabadOS/website#readme",
   "dependencies": {
+    "@octokit/types": "^5.5.0",
     "gatsby": "^2.24.67",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-manifest": "^2.4.33",
