@@ -9,36 +9,29 @@ type DownloadButtonProps = {
   size: number,
 }
 
+const convertToMb = ( size:number ) => Math.round( size / 1000 / 1000 )
+
 const DownloadButton = ( {
   label,
-  platformIcon:
-  Icon,
+  platformIcon: Icon,
   downloadUrl,
   semver,
   size,
-}:DownloadButtonProps ) => (
+}: DownloadButtonProps ) => (
   <div>
     <a className="download-button" href={downloadUrl} id={`${label}-download`}>
       <div className="download-button">
         <span>Download</span>
-        {' '}
+        &nbsp;
         <span>
           <Icon />
-          {' '}
+          &nbsp;
           {label}
         </span>
       </div>
     </a>
     <div className="info">
-      Version
-      {' '}
-      {semver}
-      {' '}
-      ❁
-      {' '}
-      {Math.round( size / 1000 / 1000 )}
-      {' '}
-      MB
+      {`Version ${semver} ❁ ${convertToMb( size )} MB`}
     </div>
   </div>
 )

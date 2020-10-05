@@ -19,7 +19,7 @@ type GithubDownloadResponse = {
 }
 
 const Home = () => {
-  const [ githubResponse, setGithubResponse ] = useState<GithubDownloadResponse | null>( null )
+  const [ githubResponse, setGithubResponse ] = useState<GithubDownloadResponse>()
 
   useEffect( () => {
     fetch( 'https://api.github.com/repos/shabados/desktop/releases/latest' )
@@ -62,27 +62,27 @@ const Home = () => {
       <ul>
         <li>
           <label>Open Source</label>
-          {' '}
+          &nbsp;
           Bani/text publicly corrected with historical journaling
         </li>
         <li>
           <label>Unified</label>
-          {' '}
+          &nbsp;
           Multiple displays and multiple controllers, all in sync
         </li>
         <li>
           <label>Live Captions</label>
-          {' '}
+          &nbsp;
           Easy and elegant subtitling for live broadcasts
         </li>
         <li>
           <label>Auto Select</label>
-          {' '}
+          &nbsp;
           Smart logic assistant to switch between lines
         </li>
         <li>
           <label>InSight</label>
-          {' '}
+          &nbsp;
           Previous/next lines to follow along with confidence
         </li>
       </ul>
@@ -120,7 +120,7 @@ const Home = () => {
         Source code available at
         <a className="iconified" href="https://github.com/ShabadOS">
           <FaGithub className="github-octicon" />
-          {' '}
+          &nbsp;
           GitHub
         </a>
         .
