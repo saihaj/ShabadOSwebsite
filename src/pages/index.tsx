@@ -118,9 +118,9 @@ const Home = () => {
 
       <p>
         Source code available at
+        &nbsp;
         <a className="iconified" href="https://github.com/ShabadOS">
           <FaGithub className="github-octicon" />
-          &nbsp;
           GitHub
         </a>
         .
