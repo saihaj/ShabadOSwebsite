@@ -1414,6 +1414,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___cacheDigest'
   | 'pluginCreator___pluginOptions___fileName'
   | 'pluginCreator___pluginOptions___documentPaths'
+  | 'pluginCreator___pluginOptions___fonts'
+  | 'pluginCreator___pluginOptions___fonts___family'
+  | 'pluginCreator___pluginOptions___fonts___variants'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
@@ -1613,6 +1616,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___cacheDigest'
   | 'pluginOptions___fileName'
   | 'pluginOptions___documentPaths'
+  | 'pluginOptions___fonts'
+  | 'pluginOptions___fonts___family'
+  | 'pluginOptions___fonts___variants'
   | 'pluginOptions___path'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
@@ -1739,6 +1745,7 @@ export type SitePluginPluginOptions = {
   cacheDigest?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
   documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
+  fonts?: Maybe<Array<Maybe<SitePluginPluginOptionsFonts>>>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
@@ -1756,8 +1763,23 @@ export type SitePluginPluginOptionsFilterInput = {
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
   documentPaths?: Maybe<StringQueryOperatorInput>;
+  fonts?: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsFonts = {
+  family?: Maybe<Scalars['String']>;
+  variants?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type SitePluginPluginOptionsFontsFilterInput = {
+  family?: Maybe<StringQueryOperatorInput>;
+  variants?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsFontsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsFontsFilterInput>;
 };
 
 export type SitePluginSortInput = {
