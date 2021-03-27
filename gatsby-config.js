@@ -17,16 +17,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
-      options: {
-        fileName: './graphqlTypes.ts',
-        documentPaths: [
-          './src/**/*.{ts,tsx}',
-          './node_modules/gatsby-*/**/*.js',
-        ],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [ 'Roboto:300,400,400i,700' ],
