@@ -9,8 +9,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { Site_Metadata_QueryQuery } from '../../graphqlTypes'
-
 type SeoProps = {
   description?: string,
   lang?: string,
@@ -31,7 +29,7 @@ const query = graphql`
 `
 
 const SEO = ( { description, lang = 'en', meta = [], title }: SeoProps ) => {
-  const { site } = useStaticQuery<Site_Metadata_QueryQuery>( query )
+  const { site } = useStaticQuery<GatsbyTypes.SITE_METADATA_QUERYQuery>( query )
 
   const metaDescription = description || site?.siteMetadata?.description
 

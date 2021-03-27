@@ -16,6 +16,7 @@ module.exports = {
         icon: 'static/logo.png',
       },
     },
+    'gatsby-plugin-typegen',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
