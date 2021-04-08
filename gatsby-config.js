@@ -16,26 +16,14 @@ module.exports = {
         icon: 'static/logo.png',
       },
     },
+    'gatsby-plugin-typegen',
     {
-      resolve: 'gatsby-plugin-graphql-codegen',
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fileName: './graphqlTypes.ts',
-        documentPaths: [
-          './src/**/*.{ts,tsx}',
-          './node_modules/gatsby-*/**/*.js',
-        ],
+        fonts: [ 'Roboto:300,400,400i,700' ],
+        display: 'swap',
       },
     },
-    {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
-      options: {
-        fonts: [
-          {
-            family: 'Roboto',
-            variants: [ '300', '400' ],
-          },
-        ],
-      },
-    },
+    'gatsby-plugin-no-sourcemaps',
   ],
 }
