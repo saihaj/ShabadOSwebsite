@@ -1,1 +1,1 @@
-import 'normalize.css'
+import './src/theme/setup-theme'
