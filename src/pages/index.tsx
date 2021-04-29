@@ -116,16 +116,20 @@ const Home = () => {
         </div>
       )}
 
-      <p>
-        Source code available at
-        &nbsp;
-        <a className="iconified" href="https://github.com/ShabadOS">
-          <FaGithub className="github-octicon" />
-          GitHub
+      <footer>
+        <p>
+          Source code available at
+          &nbsp;
+          <a className="iconified" href="https://github.com/ShabadOS">
+            <FaGithub className="github-octicon" />
+            GitHub
+          </a>
+          .
+        </p>
+        <a className="vercel" href="https://vercel.com/?utm_source=ShabadOS&utm_campaign=oss" target="_blank" rel="noreferrer">
+          <img alt="Powered by Vercel" src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" />
         </a>
-        .
-      </p>
-
+      </footer>
     </div>
   )
 }

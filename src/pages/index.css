@@ -389,3 +389,21 @@ div.download .other-platforms > div.disabled > svg > path {
     padding-bottom: 3em;
   }
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a.vercel {
+  text-decoration: none;
+  border: unset;
+}
+
+footer a.vercel:hover {
+  filter: brightness(0.8);
+}
+
+footer .vercel img {
+  width: 125px;
+}
