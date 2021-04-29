@@ -6,6 +6,9 @@ The website for Shabad OS. [See what it looks like >][website-url]
 
 [![Release][release-image]][release-url]
 [![Next Release][next-image]][next-url]
+<a href="https://vercel.com/?utm_source=ShabadOS&utm_campaign=oss">
+<img src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" width="100" alt="Powered by Vercel"/>
+</a>
 
 **Table of Contents**
 
