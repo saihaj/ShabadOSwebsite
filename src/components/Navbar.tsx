@@ -6,6 +6,8 @@ import { Cross as Hamburger } from 'hamburger-react'
 
 import { Color, widthLessThan, Breakpoints, widthMoreThan } from '../theme'
 
+import Logo from './Logo'
+
 const NAV_ROUTES = [
   { name: 'About Us', url: '/about' },
   { name: 'Database', url: '/database' },
@@ -24,10 +26,11 @@ const useStyles = createUseStyles( {
       flexDirection: 'column',
       alignItems: 'unset',
     },
+    position: 'relative',
   },
   navItem: {
     fontWeight: 'normal',
-    padding: '.6rem.6rem',
+    padding: '.4rem .4rem',
     margin: '.2rem 0.5rem 0',
     border: `0.15rem solid ${Color.avaniPurple}`,
     color: 'rgba( 255, 255, 255, 0.85 )',
@@ -43,16 +46,24 @@ const useStyles = createUseStyles( {
       backgroundColor: 'rgba(0, 162, 213, .5)',
       color: `${Color.white}`,
     },
+    [ widthLessThan( Breakpoints.tablet ) ]: {
+      '& > span': {
+        display: 'none',
+      },
+      padding: 0,
+    },
+    '& > span': {
+      marginLeft: 5,
+    },
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   menuButton: {
     [ widthMoreThan( Breakpoints.tablet ) ]: {
       display: 'none',
     },
-  },
-  title: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    position: 'absolute',
   },
 } )
 
@@ -83,14 +94,13 @@ const Navbar = () => {
 
   return (
     <nav className={classes.navbar}>
-      <div className={classes.title}>
-        <div className={classes.menuButton}>
-          <Hamburger size={24} onToggle={toggleSwitch} toggled={isExpanded} />
-        </div>
-        <Link to="/" className={classes.navItem}>
-          Shabad OS
-        </Link>
+      <div className={classes.menuButton}>
+        <Hamburger size={20} onToggle={toggleSwitch} direction="right" toggled={isExpanded} />
       </div>
+      <Link to="/" className={classes.navItem}>
+        <Logo width={38} height={38} />
+        <span>Shabad OS</span>
+      </Link>
       {isExpanded && <NavItems />}
     </nav>
   )

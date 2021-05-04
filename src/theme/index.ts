@@ -21,6 +21,9 @@ export const globalTheme = {
     body: {
       fontSize: '0.875rem',
     },
+    '*': {
+      boxSizing: 'border-box',
+    },
     a: {
       outlineStyle: 'none',
       outlineWidth: 0,
