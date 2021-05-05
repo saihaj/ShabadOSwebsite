@@ -6,6 +6,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-jss',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -20,7 +22,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: [ 'Roboto:300,400,400i,700' ],
+        fonts: [ 'Noto Sans:300,400,400i,700' ],
         display: 'swap',
       },
     },

@@ -1,10 +1,3 @@
-/**
- * TypeChecking is basically disabled here because
- * We want different types of `meta` tags
- * Current types for `meta` are are not the best
- */
-
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -39,8 +32,6 @@ const SEO = ( { description, lang = 'en', meta = [], title }: SeoProps ) => {
       title={title}
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       titleTemplate={`%s | ${site?.siteMetadata?.title}`}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       meta={[
         {
           name: 'description',
