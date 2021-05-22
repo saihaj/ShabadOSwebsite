@@ -2,7 +2,7 @@ import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createUseStyles } from 'react-jss'
 import cx from 'classnames'
 
-import { Color, radialSplash } from '../theme'
+import { Breakpoints, Color, radialSplash, widthLessThan } from '../theme'
 
 import Link, { LinkProps } from './Link'
 
@@ -11,23 +11,46 @@ const useStyles = createUseStyles( {
     color: Color.white,
     padding: '6rem 6.5rem 0',
     background: radialSplash,
+    [ widthLessThan( Breakpoints.tablet ) ]: {
+      padding: '6rem 2.5rem 0',
+    },
+    [ widthLessThan( Breakpoints.mobile ) ]: {
+      padding: '5rem 0 0',
+    },
   },
   secondary: {
-    margin: '2rem',
+    margin: '2rem 1rem',
     padding: '6rem 4.5rem 0',
     color: Color.black,
     background: Color.avaniPaper,
+    [ widthLessThan( Breakpoints.tablet ) ]: {
+      margin: 0,
+      padding: '6rem 2.5rem 0',
+    },
+    [ widthLessThan( Breakpoints.mobile ) ]: {
+      padding: '4rem 1rem 0',
+    },
   },
   main: {
-    height: '600px',
+    height: 600,
+    [ widthLessThan( Breakpoints.mobile ) ]: {
+      textAlign: 'center',
+    },
     '& h1': {
       margin: 0,
       fontWeight: 'normal',
       fontSize: '3.7rem',
+      [ widthLessThan( Breakpoints.tablet ) ]: {
+        fontSize: '2.7rem',
+      },
     },
     '& p': {
       fontSize: '2rem',
       lineHeight: '4rem',
+      [ widthLessThan( Breakpoints.tablet ) ]: {
+        fontSize: '1.5rem',
+        lineHeight: '3rem',
+      },
     },
   },
   secondLink: {
