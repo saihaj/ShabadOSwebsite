@@ -11,7 +11,7 @@ export enum Color {
   aqua200 = 'rgba(0, 162, 213, .5)',
 }
 
-export const radialSplash = `radial-gradient(75vw 100vh at 50% 115%, ${Color.avaniPink}, ${Color.avaniPurple} 100%)`
+export const radialSplash = `radial-gradient(75vw 70vh at 50% 115%, ${Color.avaniPink}, ${Color.avaniPurple} 100%)`
 
 export const globalTheme = {
   '@global': {
