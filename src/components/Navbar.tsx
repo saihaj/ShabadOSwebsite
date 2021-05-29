@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { createUseStyles } from 'react-jss'
 import { Link } from 'gatsby'
-import { useWindowWidth } from '@react-hook/window-size'
 import { Cross as Hamburger } from 'hamburger-react'
 
-import { Color, widthLessThan, Breakpoints, widthMoreThan } from '../theme'
+import { Color, widthLessThan, Breakpoints, widthMoreThan, focusRing } from '../theme'
+import useToggle from '../hooks/use-toggle'
 
 import Logo from './Logo'
 
@@ -40,12 +40,7 @@ const useStyles = createUseStyles( {
     '&:hover': {
       color: `${Color.white}`,
     },
-    '&:focus': {
-      borderColor: `${Color.link}`,
-      borderRadius: '0.5rem',
-      backgroundColor: 'rgba(0, 162, 213, .5)',
-      color: `${Color.white}`,
-    },
+    ...focusRing(),
     [ widthLessThan( Breakpoints.tablet ) ]: {
       '& > span': {
         display: 'none',
@@ -81,21 +76,13 @@ const NavItems = () => {
 }
 
 const Navbar = () => {
-  const [ isExpanded, toggleExpansion ] = useState( false )
+  const [ isExpanded, toggleExpansion ] = useToggle()
   const classes = useStyles()
-  const width = useWindowWidth()
-
-  const toggleSwitch = () => toggleExpansion( !isExpanded )
-
-  useEffect( () => {
-    // Not mobile then toggle cannot be expanded
-    if ( width > Breakpoints.tablet ) toggleExpansion( true )
-  }, [ width ] )
 
   return (
     <nav className={classes.navbar}>
       <div className={classes.menuButton}>
-        <Hamburger size={20} onToggle={toggleSwitch} direction="right" toggled={isExpanded} />
+        <Hamburger size={20} onToggle={toggleExpansion} direction="right" toggled={isExpanded} />
       </div>
       <Link to="/" className={classes.navItem}>
         <Logo width={38} height={38} />
