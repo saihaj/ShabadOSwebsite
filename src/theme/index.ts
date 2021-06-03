@@ -13,6 +13,15 @@ export enum Color {
 
 export const radialSplash = `radial-gradient(75vw 70vh at 50% 115%, ${Color.avaniPink}, ${Color.avaniPurple} 100%)`
 
+export const focusRing = ( color = 'inherit', borderRadius = '0.5rem' ) => ( {
+  '&:focus': {
+    borderColor: Color.link,
+    borderRadius,
+    backgroundColor: Color.aqua200,
+    color,
+  },
+} )
+
 export const globalTheme = {
   '@global': {
     html: {
@@ -43,6 +52,7 @@ export const globalTheme = {
       '&:hover': {
         color: Color.linkHover,
       },
+      ...focusRing( 'inherit', '0' ),
     },
   },
 }
@@ -52,15 +62,6 @@ export enum Breakpoints {
   tablet = 768,
   laptop = 1024,
 }
-
-export const focusRing = ( color = 'inherit', borderRadius = '0.5rem' ) => ( {
-  '&:focus': {
-    borderColor: Color.link,
-    borderRadius,
-    backgroundColor: Color.aqua200,
-    color,
-  },
-} )
 
 export const widthMoreThan = ( width:number ) => `@media screen and (min-width: ${width}px)`
 
