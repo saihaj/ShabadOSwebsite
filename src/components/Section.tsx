@@ -10,7 +10,7 @@ type SectionProps = {
 
 const useStyles = createUseStyles( () => ( {
   section: ( props: SectionProps ) => ( {
-    background: props.background || 'linear-gradient(#FFFFFF, #FAF8F7)',
+    background: props.background || 'linear-gradient(#FAF8F7, #FFFFFF)',
     color: props.color || 'black',
     padding: props.padding,
   } ),
