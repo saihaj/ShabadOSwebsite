@@ -2,31 +2,38 @@ import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createUseStyles } from 'react-jss'
 import cx from 'classnames'
 
-import { Breakpoints, widthLessThan } from '../theme'
+import { Breakpoints, widthLessThan, widthMoreThan } from '../theme'
 
 import Link, { LinkProps } from './Link'
 import Content from './Content'
 
 const useStyles = createUseStyles( {
   main: {
-    height: 600,
     [ widthLessThan( Breakpoints.mobile ) ]: {
       textAlign: 'center',
     },
     '& h1': {
-      margin: 0,
-      fontWeight: 'normal',
       fontSize: '3rem',
+      lineHeight: 0.5,
       [ widthLessThan( Breakpoints.tablet ) ]: {
-        fontSize: '2.25rem',
-        lineHeight: 1.333,
+        fontSize: '2rem',
+        lineHeight: 0.75,
       },
     },
     '& p': {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
+      lineHeight: 2,
       [ widthLessThan( Breakpoints.tablet ) ]: {
-        fontSize: '1.5rem',
-        lineHeight: 2,
+        fontSize: '1.25rem',
+      },
+    },
+    '& a + a': {
+      [ widthMoreThan( Breakpoints.tablet ) ]: {
+        marginLeft: '2rem',
+      },
+      [ widthLessThan( Breakpoints.tablet ) ]: {
+        display: 'block',
+        marginTop: '1.5rem',
       },
     },
   },

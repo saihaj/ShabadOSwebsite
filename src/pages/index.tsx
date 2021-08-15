@@ -13,7 +13,7 @@ const Home = () => (
       <Section
         background={radialSplash}
         color="white"
-        padding="6rem 6.5rem 0"
+        padding="3rem 44px"
       >
         <Hero
           title="Presenter"
@@ -31,7 +31,7 @@ const Home = () => (
         </Hero>
       </Section>
       <Section
-        padding="6rem 6.5rem 0"
+        padding="3rem 44px"
       >
         <Hero
           title="Database"
@@ -48,7 +48,7 @@ const Home = () => (
         </Hero>
       </Section>
       <Section
-        padding="6rem 6.5rem 0"
+        padding="3rem 44px"
       >
         <Hero
           title="Viewer"

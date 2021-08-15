@@ -24,13 +24,14 @@ export const focusRing = ( color = 'inherit', borderRadius = '0.5rem' ) => ( {
 
 export const globalTheme = {
   '@global': {
+    '*': {
+      fontWeight: 'normal',
+      boxSizing: 'border-box',
+    },
     html: {
       fontFamily: 'Noto Sans',
       fontSize: 16,
       lineHeight: 1.5,
-    },
-    '*': {
-      boxSizing: 'border-box',
     },
     '#gatsby-focus-wrapper': {
       minHeight: '100vh',
@@ -43,7 +44,6 @@ export const globalTheme = {
     a: {
       outlineStyle: 'none',
       outlineWidth: 0,
-      fontWeight: 'bold',
       textDecoration: 'none',
       color: Color.Link,
       '&:hover': {
