@@ -26,13 +26,13 @@ const useStyles = createUseStyles( {
     alignContent: 'center',
     padding: '0.6rem 0',
     '& a': {
-      color: Color.black,
+      color: Color.Black,
       display: 'flex',
       justifyContent: 'center',
       padding: '0 0.1rem',
       alignItems: 'center',
       '&:hover': {
-        color: Color.black,
+        color: Color.Black,
         opacity: '60%',
       },
       marginLeft: '0.4rem',
@@ -55,10 +55,10 @@ const useStyles = createUseStyles( {
       listStyleType: 'none',
       '& > li > a': {
         fontWeight: 'lighter',
-        color: Color.black,
+        color: Color.Black,
         opacity: '60%',
         '&:hover': {
-          color: Color.linkHover,
+          color: Color.LinkHover,
         },
         ...focusRing(),
         padding: '0 0.2rem',
@@ -68,7 +68,7 @@ const useStyles = createUseStyles( {
         fontSize: '1rem',
       },
       [ widthLessThan( Breakpoints.tablet ) ]: {
-        borderColor: Color.black200,
+        borderColor: Color.Black200,
         borderTopStyle: 'solid',
         borderTop: 1,
         padding: '0.6rem 0',
@@ -95,7 +95,7 @@ const useStyles = createUseStyles( {
     display: 'flex',
     justifyContent: 'center',
     [ widthLessThan( Breakpoints.tablet ) ]: {
-      borderColor: Color.black200,
+      borderColor: Color.Black200,
       borderTopStyle: 'solid',
       borderTopWidth: 1,
       padding: '0.6rem 0',
@@ -146,7 +146,7 @@ const Footer = () => {
 
   return (
     <Section
-      background={Color.avaniPaper}
+      background={Color.AvaniPaper}
     >
       <Content>
         <footer className={classes.main}>

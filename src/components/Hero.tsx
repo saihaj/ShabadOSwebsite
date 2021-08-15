@@ -9,7 +9,7 @@ import Content from './Content'
 
 const useStyles = createUseStyles( {
   primary: {
-    color: Color.white,
+    color: Color.White,
     background: radialSplash,
     [ widthLessThan( Breakpoints.tablet ) ]: {
       padding: '6rem 2.5rem 0',
@@ -21,8 +21,8 @@ const useStyles = createUseStyles( {
   secondary: {
     margin: '2rem 1rem',
     padding: '6rem 4.5rem 0',
-    color: Color.black,
-    background: Color.avaniPaper,
+    color: Color.Black,
+    background: Color.AvaniPaper,
     [ widthLessThan( Breakpoints.tablet ) ]: {
       margin: 0,
       padding: '6rem 2.5rem 0',

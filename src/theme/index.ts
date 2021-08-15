@@ -1,23 +1,23 @@
 export enum Color {
-  link = '#00a2d5',
-  linkHover = '#0088bf',
-  avaniPink = '#b71e61',
-  avaniPurple = '#300519',
-  avaniPaper = '#f6f3ef',
-  white = '#ffffff',
-  gray900 = '#faf8f7',
-  black = '#000000',
-  black200 = 'rgba(0,0,0,0.2)',
-  aqua200 = 'rgba(0, 162, 213, .5)',
+  Link = '#00a2d5',
+  LinkHover = '#0088bf',
+  AvaniPink = '#b71e61',
+  AvaniPurple = '#300519',
+  AvaniPaper = '#f6f3ef',
+  White = '#ffffff',
+  Gray900 = '#faf8f7',
+  Black = '#000000',
+  Black200 = 'rgba(0,0,0,0.2)',
+  Aqua200 = 'rgba(0, 162, 213, .5)',
 }
 
-export const radialSplash = `radial-gradient(75vw 70vh at 50% 115%, ${Color.avaniPink}, ${Color.avaniPurple} 100%)`
+export const radialSplash = `radial-gradient(75vw 70vh at 50% 115%, ${Color.AvaniPink}, ${Color.AvaniPurple} 100%)`
 
 export const focusRing = ( color = 'inherit', borderRadius = '0.5rem' ) => ( {
   '&:focus': {
-    borderColor: Color.link,
+    borderColor: Color.Link,
     borderRadius,
-    backgroundColor: Color.aqua200,
+    backgroundColor: Color.Aqua200,
     color,
   },
 } )
@@ -48,9 +48,9 @@ export const globalTheme = {
       outlineWidth: 0,
       fontWeight: 'bold',
       textDecoration: 'none',
-      color: Color.link,
+      color: Color.Link,
       '&:hover': {
-        color: Color.linkHover,
+        color: Color.LinkHover,
       },
       ...focusRing( 'inherit', '0' ),
     },

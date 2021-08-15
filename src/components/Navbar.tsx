@@ -32,13 +32,13 @@ const useStyles = createUseStyles( {
     fontWeight: 'normal',
     padding: '.4rem .4rem',
     margin: '.2rem 0.5rem 0',
-    border: `0.15rem solid ${Color.avaniPurple}`,
+    border: `0.15rem solid ${Color.AvaniPurple}`,
     color: 'rgba( 255, 255, 255, 0.85 )',
     '&.currentItem': {
-      borderBottomColor: `${Color.link}`,
+      borderBottomColor: `${Color.Link}`,
     },
     '&:hover': {
-      color: `${Color.white}`,
+      color: `${Color.White}`,
     },
     ...focusRing(),
     [ widthLessThan( Breakpoints.tablet ) ]: {
@@ -81,8 +81,8 @@ const Navbar = () => {
 
   return (
     <Section
-      background={Color.avaniPurple}
-      color={Color.white}
+      background={Color.AvaniPurple}
+      color={Color.White}
     >
       <Content>
         <div className={classes.navMenu}>
