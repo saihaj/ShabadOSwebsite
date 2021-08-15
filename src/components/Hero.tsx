@@ -5,11 +5,11 @@ import cx from 'classnames'
 import { Breakpoints, Color, radialSplash, widthLessThan } from '../theme'
 
 import Link, { LinkProps } from './Link'
+import Content from './Content'
 
 const useStyles = createUseStyles( {
   primary: {
     color: Color.white,
-    padding: '6rem 6.5rem 0',
     background: radialSplash,
     [ widthLessThan( Breakpoints.tablet ) ]: {
       padding: '6rem 2.5rem 0',
@@ -76,25 +76,25 @@ const Hero = ( {
 }:HeroProps ) => {
   const classes = useStyles()
   return (
-    <section
-      className={cx(
-        classes.main,
-        { [ classes.primary ]: primary },
-        { [ classes.secondary ]: !primary },
-        className,
-      )}
-      {...props}
-    >
-      <h1>{title}</h1>
-      <p>{children}</p>
-      <Link to={learnMore}>Learn More &gt;</Link>
-      <Link
-        {...additionalLink}
-        className={cx( classes.secondLink, additionalLink.className )}
+    <Content>
+      <section
+        className={cx(
+          classes.main,
+          className,
+        )}
+        {...props}
       >
-        {additionalLink.children}
-      </Link>
-    </section>
+        <h1>{title}</h1>
+        <p>{children}</p>
+        <Link to={learnMore}>Learn More &gt;</Link>
+        <Link
+          {...additionalLink}
+          className={cx( classes.secondLink, additionalLink.className )}
+        >
+          {additionalLink.children}
+        </Link>
+      </section>
+    </Content>
   )
 }
 
