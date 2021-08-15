@@ -5,6 +5,8 @@ import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { Breakpoints, Color, focusRing, widthLessThan, widthMoreThan } from '../../theme'
 import Link from '../Link'
 import useToggle from '../../hooks/use-toggle'
+import Content from '../Content'
+import Section from '../Section'
 
 import { LINKS, SOCIAL } from './consts'
 import Expand from './Expand'
@@ -13,7 +15,6 @@ const useStyles = createUseStyles( {
   main: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: Color.avaniPaper,
     padding: '0.6rem 2rem',
     [ widthLessThan( Breakpoints.tablet ) ]: {
       paddingLeft: '1rem',
@@ -102,7 +103,7 @@ const useStyles = createUseStyles( {
   },
 } )
 
-type NavSectionProps= {
+type NavSectionProps = {
   label:string,
   links: { name:string, url:string }[],
 } & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
@@ -144,27 +145,33 @@ const Footer = () => {
   const classes = useStyles()
 
   return (
-    <footer className={classes.main}>
+    <Section
+      background={Color.avaniPaper}
+    >
+      <Content>
+        <footer className={classes.main}>
 
-      <div className={classes.header}>
-        <span>Follow us on:</span>
+          <div className={classes.header}>
+            <span>Follow us on:</span>
 
-        {SOCIAL.map( ( { url, icon: Icon } ) => (
-          <Link to={url} key={url}>
-            <Icon />
-          </Link>
-        ) ) }
-      </div>
+            {SOCIAL.map( ( { url, icon: Icon } ) => (
+              <Link to={url} key={url}>
+                <Icon />
+              </Link>
+            ) ) }
+          </div>
 
-      <FooterNav />
+          <FooterNav />
 
-      <div className={classes.sponsors}>
-        <Link to="https://vercel.com/?utm_source=ShabadOS&utm_campaign=oss">
-          <img width={125} alt="Powered by Vercel" src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" />
-        </Link>
-      </div>
+          <div className={classes.sponsors}>
+            <Link to="https://vercel.com/?utm_source=ShabadOS&utm_campaign=oss">
+              <img width={125} alt="Powered by Vercel" src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg" />
+            </Link>
+          </div>
 
-    </footer>
+        </footer>
+      </Content>
+    </Section>
   )
 }
 
