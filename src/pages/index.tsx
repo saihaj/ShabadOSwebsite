@@ -17,8 +17,10 @@ const Home = () => (
       >
         <Hero
           title="Presenter"
-          learnMore="/presenter"
-          additionalLink={{ to: '/', children: 'Download >' }}
+          ctaList={[
+            { to: '/presenter', children: 'Learn More >' },
+            { to: '/', children: 'Download >' },
+          ]}
           primary
         >
           The new Desktop app is
@@ -33,8 +35,10 @@ const Home = () => (
       >
         <Hero
           title="Database"
-          learnMore="/database"
-          additionalLink={{ to: 'https://github.com/shabados/database', children: 'View on GitHub >' }}
+          ctaList={[
+            { to: '/database', children: 'Learn More >' },
+            { to: 'https://github.com/shabados/database', children: 'View on GitHub >' },
+          ]}
         >
           Multiple Sources.
           <br />
@@ -48,8 +52,10 @@ const Home = () => (
       >
         <Hero
           title="Viewer"
-          learnMore="/viewer"
-          additionalLink={{ to: 'https://github.com/shabados/viewer', children: 'View on GitHub >' }}
+          ctaList={[
+            { to: '/viewer', children: 'Learn More >' },
+            { to: 'https://github.com/shabados/viewer', children: 'View on GitHub >' },
+          ]}
         >
           Drill down to each line
           <br />

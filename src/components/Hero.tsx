@@ -37,8 +37,7 @@ const useStyles = createUseStyles( {
 
 type HeroProps = {
   title:string,
-  learnMore:string,
-  additionalLink: LinkProps,
+  ctaList: LinkProps[],
   primary?: boolean,
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
@@ -47,8 +46,7 @@ const Hero = ( {
   primary,
   children,
   className,
-  learnMore,
-  additionalLink,
+  ctaList,
   ...props
 }:HeroProps ) => {
   const classes = useStyles()
@@ -63,13 +61,10 @@ const Hero = ( {
       >
         <h1>{title}</h1>
         <p>{children}</p>
-        <Link to={learnMore}>Learn More &gt;</Link>
-        <Link
-          {...additionalLink}
-          className={cx( classes.secondLink, additionalLink.className )}
-        >
-          {additionalLink.children}
-        </Link>
+        {ctaList.map( ( cta ) => (
+          <Link to={cta.to}>{cta.children}</Link>
+        ) )}
+
       </section>
     </Content>
   )
