@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { createUseStyles } from 'react-jss'
 
 type SectionProps = {
-  children?: ReactNode,
+  children: ReactNode,
   background?: string,
   color?: string,
   padding?: string,
