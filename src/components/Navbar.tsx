@@ -6,7 +6,9 @@ import { Cross as Hamburger } from 'hamburger-react'
 import { Color, widthLessThan, Breakpoints, widthMoreThan, focusRing } from '../theme'
 import useToggle from '../hooks/use-toggle'
 
+import Content from './Content'
 import Logo from './Logo'
+import Section from './Section'
 
 const NAV_ROUTES = [
   { name: 'About Us', url: '/about' },
@@ -17,16 +19,14 @@ const NAV_ROUTES = [
 ]
 
 const useStyles = createUseStyles( {
-  navbar: {
-    background: Color.avaniPurple,
-    color: Color.white,
+  navMenu: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     [ widthLessThan( Breakpoints.tablet ) ]: {
       flexDirection: 'column',
       alignItems: 'unset',
     },
-    position: 'relative',
   },
   navItem: {
     fontWeight: 'normal',
@@ -80,16 +80,23 @@ const Navbar = () => {
   const classes = useStyles()
 
   return (
-    <nav className={classes.navbar}>
-      <div className={classes.menuButton}>
-        <Hamburger size={20} onToggle={toggleExpansion} direction="right" toggled={isExpanded} />
-      </div>
-      <Link to="/" className={classes.navItem}>
-        <Logo width={38} height={38} />
-        <span>Shabad OS</span>
-      </Link>
-      {isExpanded && <NavItems />}
-    </nav>
+    <Section
+      background={Color.avaniPurple}
+      color={Color.white}
+    >
+      <Content>
+        <div className={classes.navMenu}>
+          <div className={classes.menuButton}>
+            <Hamburger size={20} onToggle={toggleExpansion} direction="right" toggled={isExpanded} />
+          </div>
+          <Link to="/" className={classes.navItem}>
+            <Logo width={38} height={38} />
+            <span>Shabad OS</span>
+          </Link>
+          {isExpanded && <NavItems />}
+        </div>
+      </Content>
+    </Section>
   )
 }
 
