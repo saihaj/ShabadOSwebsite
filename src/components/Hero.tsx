@@ -9,9 +9,7 @@ import Content from './Content'
 
 const useStyles = createUseStyles( {
   main: {
-    [ widthLessThan( Breakpoints.mobile ) ]: {
-      textAlign: 'center',
-    },
+    textAlign: 'center',
     '& h1': {
       fontSize: '3rem',
       lineHeight: 0.5,

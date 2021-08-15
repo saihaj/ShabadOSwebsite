@@ -4,7 +4,9 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
-import { radialSplash } from '../theme'
+import { Breakpoints, radialSplash } from '../theme'
+
+import liveSearchGif from './live-search.gif'
 
 const Home = () => (
   <>
@@ -13,7 +15,7 @@ const Home = () => (
       <Section
         background={radialSplash}
         color="white"
-        padding="3rem 44px"
+        padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
         <Hero
           title="Presenter"
@@ -23,15 +25,14 @@ const Home = () => (
           ]}
           primary
         >
-          The new Desktop app is
+          The new desktop app is more simple, powerful, and accurate than ever.
           <br />
-          more simple, powerful,
           <br />
-          and accurate than ever.
+          <img src={liveSearchGif} alt="gif" />
         </Hero>
       </Section>
       <Section
-        padding="3rem 44px"
+        padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
         <Hero
           title="Database"
@@ -40,15 +41,11 @@ const Home = () => (
             { to: 'https://github.com/shabados/database', children: 'View on GitHub >' },
           ]}
         >
-          Multiple Sources.
-          <br />
-          Multiple Reviewers.
-          <br />
-          Single Source of truth.
+          Multiple Sources. Multiple Reviewers. Single Source of truth.
         </Hero>
       </Section>
       <Section
-        padding="3rem 44px"
+        padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
         <Hero
           title="Viewer"
@@ -57,11 +54,7 @@ const Home = () => (
             { to: 'https://github.com/shabados/viewer', children: 'View on GitHub >' },
           ]}
         >
-          Drill down to each line
-          <br />
-          and read expositions
-          <br />
-          from multiple translations
+          Drill down to each line and read expositions from multiple translations
         </Hero>
       </Section>
     </main>
