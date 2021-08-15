@@ -2,35 +2,12 @@ import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createUseStyles } from 'react-jss'
 import cx from 'classnames'
 
-import { Breakpoints, Color, radialSplash, widthLessThan } from '../theme'
+import { Breakpoints, widthLessThan } from '../theme'
 
 import Link, { LinkProps } from './Link'
 import Content from './Content'
 
 const useStyles = createUseStyles( {
-  primary: {
-    color: Color.White,
-    background: radialSplash,
-    [ widthLessThan( Breakpoints.tablet ) ]: {
-      padding: '6rem 2.5rem 0',
-    },
-    [ widthLessThan( Breakpoints.mobile ) ]: {
-      padding: '5rem 0 0',
-    },
-  },
-  secondary: {
-    margin: '2rem 1rem',
-    padding: '6rem 4.5rem 0',
-    color: Color.Black,
-    background: Color.AvaniPaper,
-    [ widthLessThan( Breakpoints.tablet ) ]: {
-      margin: 0,
-      padding: '6rem 2.5rem 0',
-    },
-    [ widthLessThan( Breakpoints.mobile ) ]: {
-      padding: '4rem 1rem 0',
-    },
-  },
   main: {
     height: 600,
     [ widthLessThan( Breakpoints.mobile ) ]: {
