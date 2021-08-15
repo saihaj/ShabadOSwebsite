@@ -4,6 +4,7 @@ import { createUseStyles } from 'react-jss'
 const useStyles = createUseStyles( {
   content: {
     maxWidth: 980,
+    padding: [ 0, 22 ],
     margin: [ 0, 'auto' ],
   },
 } )
