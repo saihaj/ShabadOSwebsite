@@ -30,8 +30,7 @@ const useStyles = createUseStyles( {
   },
   navItem: {
     fontWeight: 'normal',
-    padding: '.4rem .4rem',
-    margin: '.2rem 0.5rem 0',
+    padding: '.5rem',
     border: `0.15rem solid ${Color.AvaniPurple}`,
     color: 'rgba( 255, 255, 255, 0.85 )',
     '&.currentItem': {
@@ -90,7 +89,10 @@ const Navbar = () => {
             <Hamburger size={20} onToggle={toggleExpansion} direction="right" toggled={isExpanded} />
           </div>
           <Link to="/" className={classes.navItem}>
-            <Logo width={38} height={38} />
+            <Logo
+              width={window.innerWidth > Breakpoints.tablet ? 24 : 32}
+              height={window.innerWidth > Breakpoints.tablet ? 24 : 32}
+            />
             <span>Shabad OS</span>
           </Link>
           {isExpanded && <NavItems />}
