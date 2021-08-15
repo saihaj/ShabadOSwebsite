@@ -27,10 +27,7 @@ export const globalTheme = {
     html: {
       fontFamily: 'Noto Sans',
       fontSize: 16,
-      lineHeight: '1.6rem',
-    },
-    body: {
-      fontSize: '0.875rem',
+      lineHeight: 1.5,
     },
     '*': {
       boxSizing: 'border-box',

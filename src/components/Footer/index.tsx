@@ -65,7 +65,6 @@ const useStyles = createUseStyles( {
       },
       '& strong': {
         fontWeight: 'normal',
-        fontSize: '1rem',
       },
       [ widthLessThan( Breakpoints.tablet ) ]: {
         borderColor: Color.Black200,

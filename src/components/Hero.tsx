@@ -39,17 +39,17 @@ const useStyles = createUseStyles( {
     '& h1': {
       margin: 0,
       fontWeight: 'normal',
-      fontSize: '3.7rem',
+      fontSize: '3rem',
       [ widthLessThan( Breakpoints.tablet ) ]: {
-        fontSize: '2.7rem',
+        fontSize: '2.25rem',
+        lineHeight: 1.333,
       },
     },
     '& p': {
       fontSize: '2rem',
-      lineHeight: '4rem',
       [ widthLessThan( Breakpoints.tablet ) ]: {
         fontSize: '1.5rem',
-        lineHeight: '3rem',
+        lineHeight: 2,
       },
     },
   },
