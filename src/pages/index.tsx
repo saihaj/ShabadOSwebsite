@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
 import { Breakpoints, radialSplash } from '../theme'
+import Link from '../components/Link'
 
 import liveSearchGif from './live-search.gif'
 
@@ -17,15 +18,10 @@ const Home = () => (
         color="white"
         padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
-        <Hero
-          title="Presenter"
-          ctaList={[
-            { to: '/presenter', children: 'Learn More >' },
-            { to: '/', children: 'Download >' },
-          ]}
-          primary
-        >
-          The new desktop app is more simple, powerful, and accurate than ever.
+        <Hero title="Presenter">
+          <p>The new desktop app is more simple, powerful, and accurate than ever.</p>
+          <Link to="/presenter">{'Learn More >'}</Link>
+          <Link to="/">{'Download >'}</Link>
           <br />
           <br />
           <img src={liveSearchGif} alt="gif" />
@@ -34,27 +30,19 @@ const Home = () => (
       <Section
         padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
-        <Hero
-          title="Database"
-          ctaList={[
-            { to: '/database', children: 'Learn More >' },
-            { to: 'https://github.com/shabados/database', children: 'View on GitHub >' },
-          ]}
-        >
-          Multiple Sources. Multiple Reviewers. Single Source of truth.
+        <Hero title="Database">
+          <p>Multiple Sources. Multiple Reviewers. Single Source of truth.</p>
+          <Link to="/database">{'Learn More >'}</Link>
+          <Link to="https://github.com/shabados/database">{'View on GitHub >'}</Link>
         </Hero>
       </Section>
       <Section
         padding={`${window.innerWidth > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
       >
-        <Hero
-          title="Viewer"
-          ctaList={[
-            { to: '/viewer', children: 'Learn More >' },
-            { to: 'https://github.com/shabados/viewer', children: 'View on GitHub >' },
-          ]}
-        >
-          Drill down to each line and read expositions from multiple translations
+        <Hero title="Viewer">
+          <p>Drill down to each line and read expositions from multiple translations</p>
+          <Link to="/viewer">{'Learn More >'}</Link>
+          <Link to="https://github.com/shabados/viewer">{'View on GitHub >'}</Link>
         </Hero>
       </Section>
     </main>

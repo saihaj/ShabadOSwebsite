@@ -4,7 +4,6 @@ import cx from 'classnames'
 
 import { Breakpoints, widthLessThan, widthMoreThan } from '../theme'
 
-import Link, { LinkProps } from './Link'
 import Content from './Content'
 
 const useStyles = createUseStyles( {
@@ -42,7 +41,6 @@ const useStyles = createUseStyles( {
 
 type HeroProps = {
   title:string,
-  ctaList: LinkProps[],
   primary?: boolean,
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
@@ -51,7 +49,6 @@ const Hero = ( {
   primary,
   children,
   className,
-  ctaList,
   ...props
 }:HeroProps ) => {
   const classes = useStyles()
@@ -65,11 +62,7 @@ const Hero = ( {
         {...props}
       >
         <h1>{title}</h1>
-        <p>{children}</p>
-        {ctaList.map( ( cta ) => (
-          <Link to={cta.to}>{cta.children}</Link>
-        ) )}
-
+        {children}
       </section>
     </Content>
   )
