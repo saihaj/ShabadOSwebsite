@@ -2,14 +2,20 @@ import React, { ReactNode } from 'react'
 import { createUseStyles } from 'react-jss'
 
 type SectionProps = {
-  children: ReactNode,
+  children: ReactNode | StylesProps,
+  background?: string,
+  color?: string,
+  padding?: string,
+}
+
+type StylesProps = {
   background?: string,
   color?: string,
   padding?: string,
 }
 
 const useStyles = createUseStyles( () => ( {
-  section: ( props: SectionProps ) => ( {
+  section: ( props: StylesProps ) => ( {
     background: props.background || 'linear-gradient(#FAF8F7, #FFFFFF)',
     color: props.color || 'black',
     padding: props.padding,
