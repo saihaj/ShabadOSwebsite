@@ -24,7 +24,7 @@ const Home = () => (
           <Link to="/">{'Download >'}</Link>
           <br />
           <br />
-          <img src={liveSearchGif} alt="gif" style={{ maxWidth: '416px', width: '100%' }} />
+          <img src={liveSearchGif as File} alt="gif" style={{ maxWidth: '416px', width: '100%' }} />
         </Hero>
       </Section>
       <Section
