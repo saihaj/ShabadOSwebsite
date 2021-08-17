@@ -22,23 +22,13 @@ const useStyles = createUseStyles( {
 
 type HeroProps = {
   title:string,
-  primary?: boolean,
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
-const Hero = ( {
-  title,
-  primary,
-  children,
-  className,
-  ...props
-}:HeroProps ) => {
+const Hero = ( { title, children }:HeroProps ) => {
   const classes = useStyles()
   return (
     <Content>
-      <section
-        className={classes.main}
-        {...props}
-      >
+      <section className={classes.main}>
         <Typography format="title">{title}</Typography>
         {children}
       </section>
