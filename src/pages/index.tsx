@@ -26,7 +26,7 @@ const Home = () => {
             <Link to="/">{'Download >'}</Link>
             <br />
             <br />
-            <img src="/live-search.gif" alt="ShabadOS Presenter Search" style={{ maxWidth: '416px', width: '100%' }} />
+            <img src="/live-search.gif" alt="ShabadOS Presenter Search" style={{ maxWidth: '416px', width: '100%', borderRadius: 12 }} />
           </Hero>
         </Section>
         <Section
