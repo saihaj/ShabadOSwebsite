@@ -7,6 +7,7 @@ import Link from '../Link'
 import useToggle from '../../hooks/use-toggle'
 import Content from '../Content'
 import Section from '../Section'
+import Typography from '../Typography'
 
 import { LINKS, SOCIAL } from './consts'
 import Expand from './Expand'
@@ -15,7 +16,7 @@ const useStyles = createUseStyles( {
   main: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '0.6rem 2rem',
+    padding: '2rem 0rem',
     [ widthLessThan( Breakpoints.tablet ) ]: {
       paddingLeft: '1rem',
       paddingRight: '1rem',
@@ -23,9 +24,9 @@ const useStyles = createUseStyles( {
   },
   header: {
     display: 'flex',
-    alignContent: 'center',
-    padding: '0.6rem 0',
+    alignItems: 'center',
     '& a': {
+      marginLeft: '0.5rem',
       color: Color.Black800,
       display: 'flex',
       justifyContent: 'center',
@@ -33,7 +34,7 @@ const useStyles = createUseStyles( {
       '&:hover': {
         color: Color.LinkHover,
       },
-      marginLeft: '0.4rem',
+      padding: '0.5rem',
       ...focusRing( 'inherit', '0' ),
     },
     [ widthLessThan( Breakpoints.tablet ) ]: {
@@ -41,17 +42,27 @@ const useStyles = createUseStyles( {
         display: 'none',
       },
       '& > a:first-of-type': {
-        marginLeft: 0,
+        marginLeft: '-0.5rem',
       },
     },
   },
   footer: {
+    [ widthMoreThan( Breakpoints.tablet ) ]: {
+      borderColor: 'rgba(0,0,0,0.1)',
+      borderStyle: 'solid',
+      borderWidth: 0,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+    },
     display: 'grid',
     '& ul': {
       padding: 0,
       margin: 0,
       listStyleType: 'none',
-      '& > li > a': {
+      '& > div + span': {
+        marginTop: '0.25rem',
+      },
+      '& a': {
         fontWeight: 'lighter',
         color: Color.Black800,
         '&:hover': {
@@ -59,18 +70,23 @@ const useStyles = createUseStyles( {
         },
         ...focusRing(),
       },
-      '& strong': {
-        fontWeight: 'normal',
-      },
       [ widthLessThan( Breakpoints.tablet ) ]: {
-        borderColor: Color.Black200,
+        borderColor: 'rgba(0,0,0,0.1)',
         borderTopStyle: 'solid',
         borderTop: 1,
-        padding: '0.6rem 0',
+        padding: '0.75rem 0',
+      },
+    },
+    '& > div:last-child > ul:last-child': {
+      [ widthLessThan( Breakpoints.tablet ) ]: {
+        borderBottomColor: 'rgba(0,0,0,0.1)',
+        borderBottomStyle: 'solid',
+        borderBottom: 1,
       },
     },
     'grid-template-columns': '1fr 1fr 1fr 1fr 1fr',
     'grid-template-rows': '1fr',
+    padding: '1rem 0',
     [ widthLessThan( Breakpoints.tablet ) ]: {
       display: 'flex',
       flexDirection: 'column',
@@ -89,12 +105,7 @@ const useStyles = createUseStyles( {
   sponsors: {
     display: 'flex',
     justifyContent: 'center',
-    [ widthLessThan( Breakpoints.tablet ) ]: {
-      borderColor: Color.Black200,
-      borderTopStyle: 'solid',
-      borderTopWidth: 1,
-      padding: '0.6rem 0',
-    },
+    paddingTop: '1rem',
   },
 } )
 
@@ -110,11 +121,13 @@ const NavSection = ( { label, links, ...props }:NavSectionProps ) => {
   return (
     <ul {...props}>
       <div className={classes.section}>
-        <strong>{label}</strong>
+        <Typography format="body">{label}</Typography>
         <Expand toggled={open} onClick={setOpen} className={classes.expandIcon} />
       </div>
       {open && links.map( ( { name, url } ) => (
-        <li key={name}><Link to={url}>{name}</Link></li>
+        <Typography format="caption">
+          <li key={name}><Link to={url}>{name}</Link></li>
+        </Typography>
       ) )}
     </ul>
   )
