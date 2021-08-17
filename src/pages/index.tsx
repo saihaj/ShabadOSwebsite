@@ -7,8 +7,6 @@ import Section from '../components/Section'
 import { Breakpoints, radialSplash } from '../theme'
 import Link from '../components/Link'
 
-import liveSearchGif from './live-search.gif'
-
 const Home = () => (
   <>
     <Navbar />
@@ -24,7 +22,7 @@ const Home = () => (
           <Link to="/">{'Download >'}</Link>
           <br />
           <br />
-          <img src={liveSearchGif as string} alt="gif" style={{ maxWidth: '416px', width: '100%' }} />
+          <img src="/live-search.gif" alt="ShabadOS Presenter Search" style={{ maxWidth: '416px', width: '100%' }} />
         </Hero>
       </Section>
       <Section
