@@ -33,7 +33,7 @@ const Home = () => {
         <Section
           background={radialSplash}
           color="white"
-          padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
         >
           <Hero title="Presenter">
             <Typography format="subtitle">The new desktop app is more simple, efficient, and powerful than ever.</Typography>
@@ -45,7 +45,7 @@ const Home = () => {
           </Hero>
         </Section>
         <Section
-          padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
         >
           <Hero title="Database">
             <Typography format="subtitle">
@@ -62,7 +62,7 @@ const Home = () => {
           </Hero>
         </Section>
         <Section
-          padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
         >
           <Hero title="Viewer">
             <Typography format="subtitle">Drill down to each line and read expositions from multiple translations</Typography>
