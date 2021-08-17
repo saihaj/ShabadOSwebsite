@@ -11,11 +11,10 @@ const useStyles = createUseStyles( {
     textAlign: 'center',
     '& a + a': {
       [ widthMoreThan( Breakpoints.tablet ) ]: {
-        marginLeft: '2rem',
+        marginLeft: '4rem',
       },
       [ widthLessThan( Breakpoints.tablet ) ]: {
         display: 'block',
-        marginTop: '1.5rem',
       },
     },
   },
