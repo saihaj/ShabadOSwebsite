@@ -151,7 +151,7 @@ const Footer = () => {
 
             {SOCIAL.map( ( { url, icon: Icon } ) => (
               <Link to={url} key={url}>
-                <Icon />
+                <Icon stroke-width={1.5} size={24} />
               </Link>
             ) ) }
           </div>

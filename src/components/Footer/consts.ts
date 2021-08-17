@@ -1,4 +1,4 @@
-import { TwitterIcon, YoutubeIcon, InstagramIcon } from './Icons'
+import { Instagram, Youtube, Twitter } from 'react-feather'
 
 export const LINKS = [
   [
@@ -16,7 +16,7 @@ export const LINKS = [
 ]
 
 export const SOCIAL = [
-  { url: 'https://www.instagram.com/shabad_os/', icon: InstagramIcon },
-  { url: 'https://www.youtube.com/channel/UCi8UjVV2Lz8H8J2Cka6iVsA', icon: YoutubeIcon },
-  { url: 'https://twitter.com/shabad_os', icon: TwitterIcon },
+  { url: 'https://www.instagram.com/shabad_os/', icon: Instagram },
+  { url: 'https://www.youtube.com/channel/UCi8UjVV2Lz8H8J2Cka6iVsA', icon: Youtube },
+  { url: 'https://twitter.com/shabad_os', icon: Twitter },
 ]
