@@ -45,10 +45,6 @@ const useStyles = createUseStyles( {
       '& > span': {
         display: 'none',
       },
-      padding: 0,
-    },
-    '& > span': {
-      marginLeft: 5,
     },
     display: 'flex',
     justifyContent: 'center',
