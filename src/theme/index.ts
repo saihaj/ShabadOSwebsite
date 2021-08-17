@@ -7,6 +7,7 @@ export enum Color {
   White = '#ffffff',
   Gray900 = '#faf8f7',
   Black = '#000000',
+  Black800 = '#2A2A29',
   Black200 = 'rgba(0,0,0,0.2)',
   Aqua200 = 'rgba(0, 162, 213, .5)',
 }

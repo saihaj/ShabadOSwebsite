@@ -26,14 +26,12 @@ const useStyles = createUseStyles( {
     alignContent: 'center',
     padding: '0.6rem 0',
     '& a': {
-      color: Color.Black,
+      color: Color.Black800,
       display: 'flex',
       justifyContent: 'center',
-      padding: '0 0.1rem',
       alignItems: 'center',
       '&:hover': {
-        color: Color.Black,
-        opacity: '60%',
+        color: Color.LinkHover,
       },
       marginLeft: '0.4rem',
       ...focusRing( 'inherit', '0' ),
@@ -55,13 +53,11 @@ const useStyles = createUseStyles( {
       listStyleType: 'none',
       '& > li > a': {
         fontWeight: 'lighter',
-        color: Color.Black,
-        opacity: '60%',
+        color: Color.Black800,
         '&:hover': {
           color: Color.LinkHover,
         },
         ...focusRing(),
-        padding: '0 0.2rem',
       },
       '& strong': {
         fontWeight: 'normal',
