@@ -8,6 +8,7 @@ import Hero from '../components/Hero'
 import Section from '../components/Section'
 import { Breakpoints, radialSplash } from '../theme'
 import Link from '../components/Link'
+import Typography from '../components/Typography'
 
 const useStyles = createUseStyles( () => ( {
   gif: {
@@ -31,7 +32,7 @@ const Home = () => {
           padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
         >
           <Hero title="Presenter">
-            <p>The new desktop app is more simple, powerful, and accurate than ever.</p>
+            <Typography format="subtitle">The new desktop app is more simple, powerful, and accurate than ever.</Typography>
             <Link to="/presenter">{'Learn More >'}</Link>
             <Link to="/">{'Download >'}</Link>
             <br />
@@ -43,7 +44,7 @@ const Home = () => {
           padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
         >
           <Hero title="Database">
-            <p>Multiple Sources. Multiple Reviewers. Single Source of truth.</p>
+            <Typography format="subtitle">Multiple Sources. Multiple Reviewers. Single Source of truth.</Typography>
             <Link to="/database">{'Learn More >'}</Link>
             <Link to="https://github.com/shabados/database">{'View on GitHub >'}</Link>
           </Hero>
@@ -52,7 +53,7 @@ const Home = () => {
           padding={`${width > Breakpoints.tablet ? '9rem' : '3rem'} 0px`}
         >
           <Hero title="Viewer">
-            <p>Drill down to each line and read expositions from multiple translations</p>
+            <Typography format="subtitle">Drill down to each line and read expositions from multiple translations</Typography>
             <Link to="/viewer">{'Learn More >'}</Link>
             <Link to="https://github.com/shabados/viewer">{'View on GitHub >'}</Link>
           </Hero>

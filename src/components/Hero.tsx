@@ -1,29 +1,14 @@
 import React, { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { createUseStyles } from 'react-jss'
-import cx from 'classnames'
 
 import { Breakpoints, widthLessThan, widthMoreThan } from '../theme'
 
 import Content from './Content'
+import Typography from './Typography'
 
 const useStyles = createUseStyles( {
   main: {
     textAlign: 'center',
-    '& h1': {
-      fontSize: '3rem',
-      lineHeight: 0.5,
-      [ widthLessThan( Breakpoints.tablet ) ]: {
-        fontSize: '2rem',
-        lineHeight: 0.75,
-      },
-    },
-    '& p': {
-      fontSize: '1.5rem',
-      lineHeight: 2,
-      [ widthLessThan( Breakpoints.tablet ) ]: {
-        fontSize: '1.25rem',
-      },
-    },
     '& a + a': {
       [ widthMoreThan( Breakpoints.tablet ) ]: {
         marginLeft: '2rem',
@@ -33,9 +18,6 @@ const useStyles = createUseStyles( {
         marginTop: '1.5rem',
       },
     },
-  },
-  secondLink: {
-    marginLeft: '1rem',
   },
 } )
 
@@ -55,13 +37,10 @@ const Hero = ( {
   return (
     <Content>
       <section
-        className={cx(
-          classes.main,
-          className,
-        )}
+        className={classes.main}
         {...props}
       >
-        <h1>{title}</h1>
+        <Typography format="title">{title}</Typography>
         {children}
       </section>
     </Content>
