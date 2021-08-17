@@ -55,6 +55,7 @@ const useStyles = createUseStyles( {
       display: 'none',
     },
     position: 'absolute',
+    marginLeft: -22,
   },
 } )
 
