@@ -1,5 +1,6 @@
 import React from 'react'
 import { useWindowWidth } from '@react-hook/window-size'
+import { createUseStyles } from 'react-jss'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -8,8 +9,17 @@ import Section from '../components/Section'
 import { Breakpoints, radialSplash } from '../theme'
 import Link from '../components/Link'
 
+const useStyles = createUseStyles( () => ( {
+  gif: {
+    maxWidth: 416,
+    width: '100%',
+    borderRadius: 12,
+  },
+} ) )
+
 const Home = () => {
   const width = useWindowWidth()
+  const classes = useStyles()
 
   return (
     <>
@@ -26,7 +36,7 @@ const Home = () => {
             <Link to="/">{'Download >'}</Link>
             <br />
             <br />
-            <img src="/live-search.gif" alt="ShabadOS Presenter Search" style={{ maxWidth: '416px', width: '100%', borderRadius: 12 }} />
+            <img src="/live-search.gif" alt="ShabadOS Presenter Search" className={classes.gif} />
           </Hero>
         </Section>
         <Section
