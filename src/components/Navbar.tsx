@@ -2,6 +2,7 @@ import React from 'react'
 import { createUseStyles } from 'react-jss'
 import { Link } from 'gatsby'
 import { Cross as Hamburger } from 'hamburger-react'
+import { useWindowWidth } from '@react-hook/window-size'
 
 import { Color, widthLessThan, Breakpoints, widthMoreThan, focusRing } from '../theme'
 import useToggle from '../hooks/use-toggle'
@@ -77,6 +78,7 @@ const NavItems = () => {
 const Navbar = () => {
   const [ isExpanded, toggleExpansion ] = useToggle()
   const classes = useStyles()
+  const width = useWindowWidth()
 
   return (
     <Section
@@ -90,8 +92,8 @@ const Navbar = () => {
           </div>
           <Link to="/" className={classes.navItem}>
             <Logo
-              width={window.innerWidth > Breakpoints.tablet ? 24 : 32}
-              height={window.innerWidth > Breakpoints.tablet ? 24 : 32}
+              width={width > Breakpoints.tablet ? 24 : 32}
+              height={width > Breakpoints.tablet ? 24 : 32}
             />
             <span>Shabad OS</span>
           </Link>
