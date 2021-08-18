@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useWindowWidth } from '@react-hook/window-size'
 import { createUseStyles } from 'react-jss'
+import { Octokit } from '@octokit/rest'
+import { isMacOs, isWindows } from 'react-device-detect'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -25,6 +27,34 @@ const useStyles = createUseStyles( () => ( {
 const Home = () => {
   const width = useWindowWidth()
   const classes = useStyles()
+  const octokit = new Octokit()
+  const [ presenterDownloadLink, setPresenterDownloadLink ] = useState( 'https://github.com/shabados/presenter/releases/latest' )
+
+  // Get the latest release of the Presenter app based on platform
+  // mac os or windows specific links default is GH releases page
+  useEffect( () => {
+    octokit.rest.repos
+      .getLatestRelease( { owner: 'shabados', repo: 'presenter' } )
+      .then( ( { data: { assets } } ) => {
+        const filters = {
+          mac: /^Shabad.OS-.*dmg$/,
+          win: /^Shabad.OS-.*exe$/,
+        }
+
+        if ( isMacOs ) {
+          const mac = assets.find( ( { name } ) => filters.mac.exec( name ) )
+          setPresenterDownloadLink( mac!.browser_download_url )
+        }
+
+        if ( isWindows ) {
+          const win = assets.find( ( { name } ) => filters.win.exec( name ) )
+          setPresenterDownloadLink( win!.browser_download_url )
+        }
+      } )
+      .catch( ( err ) => console.error( err ) )
+  // Octokit is to requests to the GitHub API
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [] )
 
   return (
     <>
@@ -39,7 +69,7 @@ const Home = () => {
             <Typography format="subtitle">The new desktop app is more simple, efficient, and powerful than ever.</Typography>
             <Typography format="header">
               <Link to="/presenter">{'Learn More >'}</Link>
-              <Link to="/">{'Download >'}</Link>
+              <Link to={presenterDownloadLink}>{'Download >'}</Link>
             </Typography>
             <img src="/live-search.gif" alt="ShabadOS Presenter Search" className={classes.gif} />
           </Hero>
