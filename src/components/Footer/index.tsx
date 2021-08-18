@@ -125,8 +125,8 @@ const NavSection = ( { label, links, ...props }:NavSectionProps ) => {
         <Expand toggled={open} onClick={setOpen} className={classes.expandIcon} />
       </div>
       {open && links.map( ( { name, url } ) => (
-        <Typography format="caption">
-          <li key={name}><Link to={url}>{name}</Link></li>
+        <Typography format="caption" key={name}>
+          <li><Link to={url}>{name}</Link></li>
         </Typography>
       ) )}
     </ul>
@@ -164,7 +164,7 @@ const Footer = () => {
 
             {SOCIAL.map( ( { url, icon: Icon } ) => (
               <Link to={url} key={url}>
-                <Icon stroke-width={1.5} size={24} />
+                <Icon strokeWidth={1.5} size={24} />
               </Link>
             ) ) }
           </div>
