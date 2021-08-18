@@ -1,16 +1,17 @@
 import React from 'react'
 import { createUseStyles } from 'react-jss'
-import type { DetailedHTMLProps, HTMLAttributes } from 'react'
+// import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 
 import { Breakpoints, Color, focusRing, widthLessThan, widthMoreThan } from '../../theme'
 import Link from '../Link'
-import useToggle from '../../hooks/use-toggle'
+// import useToggle from '../../hooks/use-toggle'
 import Content from '../Content'
 import Section from '../Section'
-import Typography from '../Typography'
+// import Typography from '../Typography'
 
-import { LINKS, SOCIAL } from './consts'
-import Expand from './Expand'
+// import { LINKS, SOCIAL } from './consts'
+import { SOCIAL } from './consts'
+// import Expand from './Expand'
 
 const useStyles = createUseStyles( {
   main: {
@@ -25,8 +26,9 @@ const useStyles = createUseStyles( {
   header: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     '& a': {
-      marginLeft: '0.5rem',
+      marginLeft: '.5rem',
       color: Color.Black800,
       display: 'flex',
       justifyContent: 'center',
@@ -34,7 +36,7 @@ const useStyles = createUseStyles( {
       '&:hover': {
         color: Color.LinkHover,
       },
-      padding: '0.5rem',
+      padding: '0.75rem',
       ...focusRing( 'inherit', '0' ),
     },
     [ widthLessThan( Breakpoints.tablet ) ]: {
@@ -109,45 +111,45 @@ const useStyles = createUseStyles( {
   },
 } )
 
-type NavSectionProps = {
-  label:string,
-  links: { name:string, url:string }[],
-} & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
+// type NavSectionProps = {
+//   label:string,
+//   links: { name:string, url:string }[],
+// } & DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>
 
-const NavSection = ( { label, links, ...props }:NavSectionProps ) => {
-  const [ open, setOpen ] = useToggle()
-  const classes = useStyles()
+// const NavSection = ( { label, links, ...props }:NavSectionProps ) => {
+//   const [ open, setOpen ] = useToggle()
+//   const classes = useStyles()
 
-  return (
-    <ul {...props}>
-      <div className={classes.section}>
-        <Typography format="body">{label}</Typography>
-        <Expand toggled={open} onClick={setOpen} className={classes.expandIcon} />
-      </div>
-      {open && links.map( ( { name, url } ) => (
-        <Typography format="caption" key={name}>
-          <li><Link to={url}>{name}</Link></li>
-        </Typography>
-      ) )}
-    </ul>
-  )
-}
+//   return (
+//     <ul {...props}>
+//       <div className={classes.section}>
+//         <Typography format="body">{label}</Typography>
+//         <Expand toggled={open} onClick={setOpen} className={classes.expandIcon} />
+//       </div>
+//       {open && links.map( ( { name, url } ) => (
+//         <Typography format="caption" key={name}>
+//           <li><Link to={url}>{name}</Link></li>
+//         </Typography>
+//       ) )}
+//     </ul>
+//   )
+// }
 
-const FooterNav = () => {
-  const classes = useStyles()
+// const FooterNav = () => {
+//   const classes = useStyles()
 
-  return (
-    <nav className={classes.footer}>
-      {LINKS.map( ( sections ) => (
-        <div key={sections[ 0 ].label}>
-          {sections.map( ( { label, links } ) => (
-            <NavSection key={label} label={label} links={links} />
-          ) )}
-        </div>
-      ) )}
-    </nav>
-  )
-}
+//   return (
+//     <nav className={classes.footer}>
+//       {LINKS.map( ( sections ) => (
+//         <div key={sections[ 0 ].label}>
+//           {sections.map( ( { label, links } ) => (
+//             <NavSection key={label} label={label} links={links} />
+//           ) )}
+//         </div>
+//       ) )}
+//     </nav>
+//   )
+// }
 
 const Footer = () => {
   const classes = useStyles()
@@ -169,7 +171,7 @@ const Footer = () => {
             ) ) }
           </div>
 
-          <FooterNav />
+          {/* <FooterNav /> */}
 
           <div className={classes.sponsors}>
             <Link to="https://vercel.com/?utm_source=ShabadOS&utm_campaign=oss">

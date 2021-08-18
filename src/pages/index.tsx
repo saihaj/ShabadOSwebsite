@@ -4,7 +4,6 @@ import { createUseStyles } from 'react-jss'
 import { Octokit } from '@octokit/rest'
 import { isDesktop, isMacOs, isWindows } from 'react-device-detect'
 
-import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
@@ -66,26 +65,24 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <main>
         <Section
           background={radialSplash}
           color="white"
-          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '9rem' : '3.5rem'} 0px`}
         >
           <Hero title="Presenter">
-            <Typography format="subtitle">The new desktop app is more simple, efficient, and powerful than ever.</Typography>
+            <Typography format="subtitle">Striving to be more simple, efficient, and powerful than ever.</Typography>
             <Typography format="header">
               {isDesktop
                 ? <Link to={presenterDownloadLink}>{'Download >'}</Link>
                 : (
                   <Typography format="body">
                     <span className={classes.hint}>
-                      Requires Win10 / macOS
+                      Available on Windows or macOS
                     </span>
                   </Typography>
                 )}
-              <Link to="/presenter">{'Learn More >'}</Link>
             </Typography>
             <img src="/live-search.gif" alt="ShabadOS Presenter Search" className={classes.gif} />
           </Hero>
@@ -102,8 +99,7 @@ const Home = () => {
               <div className={classes.ib}>Single Source of truth.</div>
             </Typography>
             <Typography format="header">
-              <Link to="/database">{'Learn More >'}</Link>
-              <Link to="https://github.com/shabados/database">{'View on GitHub >'}</Link>
+              <Link to="https://docs.shabados.com/database/">{'Learn More >'}</Link>
             </Typography>
             <img src="/database-hero.png" alt="ShabadOS Database Review" className={classes.heroMedia} />
           </Hero>
@@ -112,10 +108,10 @@ const Home = () => {
           padding={`${width > Breakpoints.tablet ? '3.5rem' : '2rem'} 0px`}
         >
           <Hero title="Viewer">
-            <Typography format="subtitle">Drill down to each line and read expositions from multiple translations</Typography>
+            <Typography format="subtitle">Drill down to each line to read expositions and translations</Typography>
             <Typography format="header">
-              <Link to="/viewer">{'Learn More >'}</Link>
-              <Link to="https://github.com/shabados/viewer">{'View on GitHub >'}</Link>
+              <Link to="https://viewer.shabados.com/">{'Launch >'}</Link>
+              <Link to="https://docs.shabados.com/viewer/guides/proofreading">{'Learn to Proofread >'}</Link>
             </Typography>
             <img src="/viewer-hero.svg" alt="ShabadOS Database Review" className={classes.heroMedia} />
           </Hero>
