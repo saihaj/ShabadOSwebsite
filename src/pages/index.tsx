@@ -19,7 +19,7 @@ const useStyles = createUseStyles( () => ( {
     width: '100%',
     borderRadius: 12,
   },
-  dbhero: {
+  heroMedia: {
     marginTop: '3rem',
     width: '100%',
     maxWidth: 600,
@@ -105,7 +105,7 @@ const Home = () => {
               <Link to="/database">{'Learn More >'}</Link>
               <Link to="https://github.com/shabados/database">{'View on GitHub >'}</Link>
             </Typography>
-            <img src="/database-hero.png" alt="ShabadOS Database Review" className={classes.dbhero} />
+            <img src="/database-hero.png" alt="ShabadOS Database Review" className={classes.heroMedia} />
           </Hero>
         </Section>
         <Section
@@ -117,6 +117,7 @@ const Home = () => {
               <Link to="/viewer">{'Learn More >'}</Link>
               <Link to="https://github.com/shabados/viewer">{'View on GitHub >'}</Link>
             </Typography>
+            <img src="/viewer-hero.svg" alt="ShabadOS Database Review" className={classes.heroMedia} />
           </Hero>
         </Section>
       </main>
