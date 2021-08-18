@@ -19,6 +19,11 @@ const useStyles = createUseStyles( () => ( {
     width: '100%',
     borderRadius: 12,
   },
+  dbhero: {
+    marginTop: '3rem',
+    width: '100%',
+    maxWidth: 600,
+  },
   ib: {
     display: 'inline-block',
   },
@@ -86,7 +91,7 @@ const Home = () => {
           </Hero>
         </Section>
         <Section
-          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '3.5rem' : '2rem'} 0px`}
         >
           <Hero title="Database">
             <Typography format="subtitle">
@@ -100,10 +105,11 @@ const Home = () => {
               <Link to="/database">{'Learn More >'}</Link>
               <Link to="https://github.com/shabados/database">{'View on GitHub >'}</Link>
             </Typography>
+            <img src="/database-hero.png" alt="ShabadOS Database Review" className={classes.dbhero} />
           </Hero>
         </Section>
         <Section
-          padding={`${width > Breakpoints.tablet ? '9rem' : '2rem'} 0px`}
+          padding={`${width > Breakpoints.tablet ? '3.5rem' : '2rem'} 0px`}
         >
           <Hero title="Viewer">
             <Typography format="subtitle">Drill down to each line and read expositions from multiple translations</Typography>
