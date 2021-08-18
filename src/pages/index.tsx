@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useWindowWidth } from '@react-hook/window-size'
 import { createUseStyles } from 'react-jss'
 import { Octokit } from '@octokit/rest'
-import { isMacOs, isWindows } from 'react-device-detect'
+import { isDesktop, isMacOs, isWindows } from 'react-device-detect'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -21,6 +21,9 @@ const useStyles = createUseStyles( () => ( {
   },
   ib: {
     display: 'inline-block',
+  },
+  hint: {
+    color: '#CCCCCC',
   },
 } ) )
 
@@ -68,8 +71,16 @@ const Home = () => {
           <Hero title="Presenter">
             <Typography format="subtitle">The new desktop app is more simple, efficient, and powerful than ever.</Typography>
             <Typography format="header">
+              {isDesktop
+                ? <Link to={presenterDownloadLink}>{'Download >'}</Link>
+                : (
+                  <Typography format="body">
+                    <span className={classes.hint}>
+                      Requires Win10 / macOS
+                    </span>
+                  </Typography>
+                )}
               <Link to="/presenter">{'Learn More >'}</Link>
-              <Link to={presenterDownloadLink}>{'Download >'}</Link>
             </Typography>
             <img src="/live-search.gif" alt="ShabadOS Presenter Search" className={classes.gif} />
           </Hero>
